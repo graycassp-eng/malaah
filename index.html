@@ -1,0 +1,1952 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>شركة ملاءة للاستشارات المالية | Malaah Financial Consulting Co.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #1b3a52;
+    --navy-deep: #0f2535;
+    --navy-mid: #2a5570;
+    --steel: #4a7fa0;
+    --steel-light: #8db4cc;
+    --steel-pale: #cde2ef;
+    --off-white: #f7f8f9;
+    --warm-white: #fafaf8;
+    --border: #dde8ef;
+    --text-primary: #1b3a52;
+    --text-secondary: #4a6a80;
+    --text-muted: #7a9aae;
+    --gold: #c8a96e;
+    --gold-light: #e8d5a8;
+    --font-ar: 'IBM Plex Sans Arabic', sans-serif;
+    --font-en: 'IBM Plex Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-ar);
+    background: var(--warm-white);
+    color: var(--text-primary);
+    overflow-x: hidden;
+  }
+
+  body.en {
+    font-family: var(--font-en);
+    direction: ltr;
+  }
+
+  /* NAVBAR */
+  .navbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    transition: box-shadow 0.3s;
+  }
+  .navbar.scrolled { box-shadow: 0 2px 24px rgba(27,58,82,0.10); }
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+    height: 88px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; flex-shrink: 0; }
+  .nav-logo img { height: 64px; object-fit: contain; max-width: 280px; }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+    letter-spacing: 0.01em;
+  }
+  .nav-links a:hover { color: var(--navy); }
+  .nav-right { display: flex; align-items: center; gap: 12px; }
+  .nav-wa {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: #25D366;
+    color: white;
+    padding: 9px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+  .nav-wa:hover { background: #128C7E; }
+  .nav-wa svg { flex-shrink: 0; }
+  .lang-toggle {
+    background: none;
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.03em;
+  }
+  .lang-toggle:hover { background: var(--navy); color: white; border-color: var(--navy); }
+  .nav-cta {
+    background: var(--navy);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 22px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .nav-cta:hover { background: var(--navy-mid); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 110px 32px 60px;
+    gap: 60px;
+  }
+  .hero-content { display: flex; flex-direction: column; gap: 28px; }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--steel-pale);
+    color: var(--navy-mid);
+    padding: 7px 16px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 500;
+    width: fit-content;
+  }
+  .hero-badge-dot { width: 6px; height: 6px; background: var(--steel); border-radius: 50%; }
+  .hero-title {
+    font-size: clamp(32px, 4vw, 54px);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--navy-deep);
+    letter-spacing: -0.01em;
+  }
+  .hero-title span { color: var(--steel); }
+  .hero-subtitle {
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    font-weight: 400;
+    max-width: 480px;
+  }
+  .hero-actions { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--navy);
+    color: white;
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-primary:hover { background: var(--navy-mid); transform: translateY(-1px); box-shadow: 0 6px 24px rgba(27,58,82,0.2); }
+  .btn-secondary {
+    background: transparent;
+    color: var(--navy);
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1.5px solid var(--border);
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-secondary:hover { border-color: var(--navy); background: var(--off-white); }
+  .hero-trust {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    background: white;
+    border: 1.5px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(27,58,82,0.07);
+    width: 100%;
+    max-width: 420px;
+  }
+  .hero-trust-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 20px 16px;
+    position: relative;
+    text-align: center;
+  }
+  .hero-trust-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 20%;
+    right: 0;
+    width: 1px;
+    height: 60%;
+    background: var(--border);
+  }
+  [dir="ltr"] .hero-trust-item:not(:last-child)::after {
+    right: auto;
+    left: 0;
+  }
+  .hero-trust-num {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--steel);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .hero-trust-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .hero-trust-divider { display: none; }
+  .hero-visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero-card-stack {
+    position: relative;
+    width: 100%;
+    max-width: 460px;
+  }
+  .hero-main-card {
+    background: white;
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: 0 20px 60px rgba(27,58,82,0.12);
+    border: 1px solid var(--border);
+    position: relative;
+    z-index: 2;
+  }
+  .hero-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+  .hero-card-label { font-size: 12px; color: var(--text-muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; }
+  .hero-card-badge {
+    background: #e8f5ee;
+    color: #2d7a4e;
+    padding: 4px 10px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .hero-card-service {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px;
+    border-radius: 12px;
+    background: var(--off-white);
+    margin-bottom: 10px;
+    transition: background 0.2s;
+  }
+  .hero-card-service:last-child { margin-bottom: 0; }
+  .hero-service-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: var(--steel-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .hero-service-icon svg { width: 22px; height: 22px; }
+  .hero-service-text { flex: 1; }
+  .hero-service-title { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 2px; }
+  .hero-service-sub { font-size: 12px; color: var(--text-muted); }
+  .hero-service-arrow { color: var(--text-muted); font-size: 14px; }
+  .hero-floating-card {
+    position: absolute;
+    bottom: -20px;
+    left: -30px;
+    background: var(--navy);
+    color: white;
+    border-radius: 14px;
+    padding: 16px 20px;
+    box-shadow: 0 12px 40px rgba(27,58,82,0.25);
+    z-index: 3;
+    min-width: 160px;
+  }
+  [dir="ltr"] .hero-floating-card { left: auto; right: -30px; }
+  .hero-floating-num { font-size: 26px; font-weight: 700; }
+  .hero-floating-label { font-size: 11px; color: rgba(255,255,255,0.65); margin-top: 2px; }
+  .hero-geo-pattern {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    opacity: 0.08;
+    z-index: 1;
+  }
+  [dir="ltr"] .hero-geo-pattern { right: auto; left: -20px; }
+
+  /* SECTION COMMON */
+  section { padding: 90px 32px; }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+  .section-header { text-align: center; margin-bottom: 56px; }
+  .section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--steel);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .section-eyebrow::before, .section-eyebrow::after {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1.5px;
+    background: var(--steel-light);
+  }
+  .section-title {
+    font-size: clamp(26px, 3vw, 40px);
+    font-weight: 700;
+    color: var(--navy-deep);
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    margin-bottom: 14px;
+  }
+  .section-subtitle {
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  /* STATS */
+  .stats-section { background: var(--navy-deep); color: white; }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  .stat-item {
+    background: var(--navy-deep);
+    padding: 48px 32px;
+    text-align: center;
+    position: relative;
+    transition: background 0.2s;
+  }
+  .stat-item:hover { background: #152d42; }
+  .stat-num {
+    font-size: 52px;
+    font-weight: 700;
+    color: white;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+  .stat-num span { color: var(--gold); }
+  .stat-label { font-size: 14px; color: rgba(255,255,255,0.55); font-weight: 400; }
+  .stat-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+  }
+  .stat-icon svg { width: 20px; height: 20px; stroke: var(--gold); }
+
+  /* SERVICES */
+  .services-section { background: var(--off-white); }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .service-card {
+    background: white;
+    border-radius: 16px;
+    padding: 36px 28px;
+    border: 1px solid var(--border);
+    transition: all 0.25s;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--steel);
+    transform: scaleX(0);
+    transition: transform 0.3s;
+  }
+  .service-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(27,58,82,0.10); border-color: var(--steel-pale); }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-icon-wrap {
+    width: 58px;
+    height: 58px;
+    background: var(--steel-pale);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 22px;
+  }
+  .service-icon-wrap svg { width: 28px; height: 28px; stroke: var(--navy-mid); }
+  .service-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+  .service-desc {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    margin-bottom: 24px;
+  }
+  .service-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--steel);
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: gap 0.2s;
+  }
+  .service-link:hover { gap: 10px; }
+  .service-card.featured { background: var(--navy); border-color: var(--navy); color: white; }
+  .service-card.featured .service-icon-wrap { background: rgba(255,255,255,0.12); }
+  .service-card.featured .service-icon-wrap svg { stroke: white; }
+  .service-card.featured .service-title { color: white; }
+  .service-card.featured .service-desc { color: rgba(255,255,255,0.65); }
+  .service-card.featured .service-link { color: var(--gold); }
+  .service-card.featured::before { background: var(--gold); }
+
+  /* HOW IT WORKS */
+  .how-section { background: white; }
+  .steps-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    position: relative;
+  }
+  .steps-container::before {
+    content: '';
+    position: absolute;
+    top: 36px;
+    left: 12.5%;
+    right: 12.5%;
+    height: 1.5px;
+    background: linear-gradient(90deg, var(--steel-pale), var(--steel-light), var(--steel-pale));
+    z-index: 0;
+  }
+  [dir="ltr"] .steps-container::before { left: 12.5%; right: 12.5%; }
+  .step-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+  }
+  .step-num {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid var(--steel-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 20px;
+    transition: all 0.2s;
+    position: relative;
+  }
+  .step-item:hover .step-num {
+    background: var(--navy);
+    color: white;
+    border-color: var(--navy);
+    box-shadow: 0 8px 24px rgba(27,58,82,0.2);
+  }
+  .step-title { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .step-desc { font-size: 13px; color: var(--text-muted); line-height: 1.65; }
+
+  /* FORM MODAL */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10,20,30,0.6);
+    backdrop-filter: blur(6px);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+  .modal-overlay.open { opacity: 1; pointer-events: all; }
+  .modal {
+    background: white;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 560px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 40px 80px rgba(10,20,30,0.25);
+    transform: translateY(20px);
+    transition: transform 0.3s;
+  }
+  .modal-overlay.open .modal { transform: translateY(0); }
+  .modal-header {
+    padding: 28px 32px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .modal-title { font-size: 18px; font-weight: 700; color: var(--navy); }
+  .modal-close {
+    width: 32px; height: 32px;
+    background: var(--off-white);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-size: 18px;
+    transition: all 0.2s;
+  }
+  .modal-close:hover { background: var(--border); color: var(--navy); }
+  .modal-body { padding: 28px 32px; }
+  .modal-footer { padding: 20px 32px; border-top: 1px solid var(--border); display: flex; gap: 12px; justify-content: flex-end; }
+  
+  /* PROGRESS BAR */
+  .progress-bar { display: flex; gap: 6px; margin-bottom: 28px; }
+  .progress-step {
+    flex: 1;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--border);
+    transition: background 0.3s;
+  }
+  .progress-step.done { background: var(--navy); }
+  .progress-step.active { background: var(--steel); }
+
+  /* FORM ELEMENTS */
+  .form-group { margin-bottom: 20px; }
+  .form-label { display: block; font-size: 13px; font-weight: 600; color: var(--navy); margin-bottom: 7px; }
+  .form-input, .form-select, .form-textarea {
+    width: 100%;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 14px;
+    font-family: inherit;
+    color: var(--text-primary);
+    background: white;
+    transition: border-color 0.2s;
+    outline: none;
+    appearance: none;
+  }
+  .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--steel); box-shadow: 0 0 0 3px rgba(74,127,160,0.1); }
+  .form-textarea { resize: vertical; min-height: 96px; }
+  .form-radio-group { display: flex; gap: 10px; flex-wrap: wrap; }
+  .form-radio-option {
+    flex: 1;
+    min-width: 100px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 13px;
+    font-weight: 500;
+    text-align: center;
+    color: var(--text-secondary);
+  }
+  .form-radio-option.selected { border-color: var(--navy); background: var(--steel-pale); color: var(--navy); font-weight: 600; }
+  .form-step-title { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+  .form-step-subtitle { font-size: 13px; color: var(--text-muted); margin-bottom: 24px; }
+  .form-success {
+    text-align: center;
+    padding: 32px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  .success-icon {
+    width: 64px; height: 64px;
+    background: #e8f5ee;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .success-icon svg { width: 30px; height: 30px; stroke: #2d7a4e; }
+  .success-title { font-size: 20px; font-weight: 700; color: var(--navy); }
+  .success-msg { font-size: 14px; color: var(--text-muted); line-height: 1.65; max-width: 320px; }
+
+  /* FAQ */
+  .faq-section { background: var(--off-white); }
+  .faq-list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+  .faq-item {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+  }
+  .faq-item.open { box-shadow: 0 4px 20px rgba(27,58,82,0.07); }
+  .faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    cursor: pointer;
+    text-align: right;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--navy);
+    transition: color 0.2s;
+  }
+  [dir="ltr"] .faq-question { text-align: left; }
+  .faq-question:hover { color: var(--steel); }
+  .faq-icon {
+    width: 28px; height: 28px;
+    background: var(--off-white);
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.2s;
+    color: var(--steel);
+    font-size: 16px;
+  }
+  .faq-item.open .faq-icon { background: var(--navy); color: white; transform: rotate(45deg); }
+  .faq-answer {
+    padding: 0 24px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.2s;
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+  }
+  .faq-item.open .faq-answer { max-height: 300px; padding-bottom: 20px; }
+
+  /* CONTACT */
+  .contact-section { background: white; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 60px; align-items: start; }
+  .contact-info { display: flex; flex-direction: column; gap: 28px; }
+  .contact-card {
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px 22px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .contact-icon {
+    width: 40px; height: 40px;
+    background: var(--steel-pale);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .contact-icon svg { width: 18px; height: 18px; stroke: var(--navy-mid); }
+  .contact-card-label { font-size: 11px; color: var(--text-muted); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 4px; }
+  .contact-card-value { font-size: 14px; color: var(--navy); font-weight: 500; line-height: 1.55; }
+  .contact-card-value a { color: var(--navy); text-decoration: none; }
+  .contact-card-value a:hover { color: var(--steel); }
+  .contact-form-wrap {
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 36px;
+  }
+  .contact-form-title { font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 24px; }
+  .contact-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #25D366;
+    color: white;
+    padding: 12px 22px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+    margin-top: 8px;
+  }
+  .whatsapp-btn:hover { background: #128C7E; transform: translateY(-1px); }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy-deep);
+    color: rgba(255,255,255,0.6);
+    padding: 48px 32px 32px;
+  }
+  .footer-inner { max-width: 1200px; margin: 0 auto; }
+  .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 48px; margin-bottom: 40px; }
+  .footer-brand img { height: 56px; object-fit: contain; margin-bottom: 14px; display: block; max-width: 240px; }
+  .footer-brand p { font-size: 13px; line-height: 1.75; max-width: 260px; }
+  .footer-col-title { font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.9); margin-bottom: 14px; letter-spacing: 0.04em; }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .footer-links a { font-size: 13px; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: rgba(255,255,255,0.9); }
+  .footer-divider { height: 1px; background: rgba(255,255,255,0.08); margin-bottom: 24px; }
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+  }
+
+  /* MOBILE NAV MENU */
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; background: none; border: none; }
+  .hamburger span { display: block; width: 22px; height: 2px; background: var(--navy); border-radius: 1px; transition: all 0.2s; }
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: white;
+    z-index: 99;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-size: 20px; color: var(--navy); text-decoration: none; font-weight: 600; }
+  .mobile-menu-close { position: absolute; top: 24px; left: 24px; font-size: 24px; cursor: pointer; color: var(--navy); background: none; border: none; }
+  [dir="ltr"] .mobile-menu-close { left: auto; right: 24px; }
+
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .nav-wa { display: none; }
+    .hamburger { display: flex; }
+    .hero { grid-template-columns: 1fr; min-height: auto; padding: 96px 20px 56px; gap: 36px; }
+    .hero-visual { order: -1; }
+    .hero-floating-card { bottom: -10px; left: -10px; }
+    [dir="ltr"] .hero-floating-card { left: auto; right: -10px; }
+    .hero-trust { flex-wrap: wrap; gap: 16px; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .stat-item { padding: 32px 20px; }
+    .stat-num { font-size: 38px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .steps-container { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .steps-container::before { display: none; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; gap: 32px; }
+    section { padding: 56px 20px; }
+    .contact-form-row { grid-template-columns: 1fr; }
+    .contact-form-wrap { padding: 24px 20px; }
+    [dir="ltr"] .mobile-menu-close { right: 24px; }
+    .hero-title { font-size: 28px; }
+    .hero-main-card { padding: 22px 18px; }
+    .hero-actions { gap: 10px; }
+    .btn-primary, .btn-secondary { padding: 12px 20px; font-size: 14px; }
+    .section-title { font-size: 24px; }
+    .faq-question { font-size: 14px; }
+  }
+  @media (max-width: 480px) {
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .steps-container { grid-template-columns: 1fr; }
+    .hero-trust-divider { display: none; }
+    .nav-inner { padding: 0 16px; }
+    .nav-logo img { height: 52px; }
+    section { padding: 48px 16px; }
+    .hero { padding: 88px 16px 48px; }
+    .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+  }
+
+  /* FLOATING WHATSAPP */
+  .float-wa {
+    position: fixed;
+    bottom: 28px;
+    left: 28px;
+    z-index: 90;
+    background: #25D366;
+    color: white;
+    border-radius: 50px;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 6px 24px rgba(37,211,102,0.4);
+    transition: all 0.25s;
+  }
+  [dir="ltr"] .float-wa { left: auto; right: 28px; }
+  .float-wa:hover { background: #128C7E; transform: translateY(-2px); box-shadow: 0 10px 32px rgba(37,211,102,0.45); }
+  .float-wa-label { display: inline; }
+  @media (max-width: 600px) { .float-wa-label { display: none; } .float-wa { padding: 14px; border-radius: 50%; } }
+
+  /* HUBSPOT MODAL */
+  .hs-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10,20,30,0.65);
+    backdrop-filter: blur(6px);
+    z-index: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+  .hs-modal-overlay.open { opacity: 1; pointer-events: all; }
+  .hs-modal {
+    background: white;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 40px 80px rgba(10,20,30,0.3);
+    transform: translateY(20px);
+    transition: transform 0.3s;
+  }
+  .hs-modal-overlay.open .hs-modal { transform: translateY(0); }
+  .hs-modal-header {
+    padding: 24px 28px 18px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .hs-modal-title { font-size: 18px; font-weight: 700; color: var(--navy); }
+  .hs-modal-body { padding: 28px; }
+  .hs-tabs {
+    display: flex;
+    gap: 0;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 24px;
+  }
+  .hs-tab {
+    flex: 1;
+    padding: 11px 16px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted);
+    transition: all 0.2s;
+    text-align: center;
+  }
+  .hs-tab.active { background: var(--navy); color: white; }
+  .hs-embed-wrap {
+    background: var(--off-white);
+    border: 1.5px dashed var(--border);
+    border-radius: 12px;
+    padding: 32px 24px;
+    text-align: center;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+  }
+  .hs-embed-icon {
+    width: 56px; height: 56px;
+    background: var(--steel-pale);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hs-embed-icon svg { width: 26px; height: 26px; stroke: var(--navy-mid); }
+  .hs-embed-title { font-size: 16px; font-weight: 700; color: var(--navy); }
+  .hs-embed-desc { font-size: 13px; color: var(--text-muted); line-height: 1.65; max-width: 320px; }
+  .hs-code-box {
+    background: #f0f4f8;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-family: monospace;
+    font-size: 12px;
+    color: var(--navy);
+    text-align: left;
+    direction: ltr;
+    width: 100%;
+    word-break: break-all;
+    margin-top: 8px;
+  }
+
+  /* Animate on scroll */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <img src="uploads/PHOTO-2026-05-05-09-43-42.jpg" alt="Malaah" id="nav-logo-img" />
+    </a>
+    <ul class="nav-links" id="nav-links-list">
+      <li><a href="#about" class="nav-link" data-ar="من نحن" data-en="About Us">من نحن</a></li>
+      <li><a href="#services" class="nav-link" data-ar="خدماتنا" data-en="Services">خدماتنا</a></li>
+      <li><a href="#how" class="nav-link" data-ar="كيف نعمل" data-en="How It Works">كيف نعمل</a></li>
+      <li><a href="#faq" class="nav-link" data-ar="الأسئلة الشائعة" data-en="FAQ">الأسئلة الشائعة</a></li>
+      <li><a href="#contact" class="nav-link" data-ar="تواصل معنا" data-en="Contact">تواصل معنا</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="lang-toggle" id="lang-toggle">EN</button>
+      <a href="https://wa.me/966537222690" target="_blank" class="nav-wa">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        <span data-ar="واتساب" data-en="WhatsApp">واتساب</span>
+      </a>
+      <a href="#contact" class="nav-cta" data-ar="ابدأ الآن" data-en="Get Started">ابدأ الآن</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobile-menu">
+  <button class="mobile-menu-close" id="mobile-close">✕</button>
+  <a href="#about" onclick="closeMobileMenu()" class="nav-link" data-ar="من نحن" data-en="About Us">من نحن</a>
+  <a href="#services" onclick="closeMobileMenu()" class="nav-link" data-ar="خدماتنا" data-en="Services">خدماتنا</a>
+  <a href="#how" onclick="closeMobileMenu()" class="nav-link" data-ar="كيف نعمل" data-en="How It Works">كيف نعمل</a>
+  <a href="#faq" onclick="closeMobileMenu()" class="nav-link" data-ar="الأسئلة الشائعة" data-en="FAQ">الأسئلة الشائعة</a>
+  <a href="#contact" onclick="closeMobileMenu()" class="nav-link" data-ar="تواصل معنا" data-en="Contact">تواصل معنا</a>
+</div>
+
+<!-- HERO -->
+<section style="padding: 0;">
+  <div class="hero">
+    <div class="hero-content reveal">
+      <div class="hero-badge">
+        <div class="hero-badge-dot"></div>
+        <span data-ar="شركة ملاءة للاستشارات المالية" data-en="Malaah Financial Consulting Co.">شركة ملاءة للاستشارات المالية</span>
+      </div>
+      <h1 class="hero-title">
+        <span data-ar="حلول تمويلية" data-en="Smart Financial">حلول تمويلية</span><br/>
+        <span style="color: var(--steel);" data-ar="ذكية وموثوقة" data-en="Solutions You Trust">ذكية وموثوقة</span>
+      </h1>
+      <p class="hero-subtitle" data-ar="نقدم للأفراد والشركات استشارات مالية متكاملة في التمويل العقاري، تمويل السيارات، والتسهيلات البنكية — بكفاءة واحترافية سعودية." data-en="We provide individuals and businesses with comprehensive financial consulting in real estate financing, auto loans, and bank facilities — with Saudi expertise and professionalism.">نقدم للأفراد والشركات استشارات مالية متكاملة في التمويل العقاري، تمويل السيارات، والتسهيلات البنكية — بكفاءة واحترافية سعودية.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" id="hero-cta-btn" data-ar="احصل على استشارة" data-en="Free Consultation">احصل على استشارة</button>
+        <a href="#services" class="btn-secondary" data-ar="اكتشف خدماتنا" data-en="Our Services →">اكتشف خدماتنا ←</a>
+      </div>
+      <div class="hero-trust">
+        <div class="hero-trust-item">
+          <div class="hero-trust-num">+500</div>
+          <div class="hero-trust-label" data-ar="عميل راضٍ" data-en="Happy Clients">عميل راضٍ</div>
+        </div>
+        <div class="hero-trust-item">
+          <div class="hero-trust-num">+20</div>
+          <div class="hero-trust-label" data-ar="سنوات خبرة" data-en="Years Experience">سنوات خبرة</div>
+        </div>
+        <div class="hero-trust-item">
+          <div class="hero-trust-num">+20</div>
+          <div class="hero-trust-label" data-ar="شريك بنكي ومؤسسة تمويلية" data-en="Banking & Finance Partners">شريك بنكي ومؤسسة تمويلية</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual reveal" style="transition-delay: 0.15s;">
+      <div class="hero-card-stack">
+        <!-- Geometric background pattern -->
+        <div class="hero-geo-pattern">
+          <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="geo" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+                <polygon points="20,2 38,11 38,29 20,38 2,29 2,11" fill="none" stroke="#1b3a52" stroke-width="1"/>
+                <polygon points="20,10 30,15 30,25 20,30 10,25 10,15" fill="none" stroke="#1b3a52" stroke-width="0.5"/>
+              </pattern>
+            </defs>
+            <rect width="200" height="200" fill="url(#geo)"/>
+          </svg>
+        </div>
+        
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ABOUT / من نحن -->
+<section id="about" style="background:#f8f9fc;padding:60px 0;border-bottom:1px solid #e5e9f0;">
+  <div class="section-inner">
+    <div class="section-header reveal" style="margin-bottom:32px">
+      <div class="section-eyebrow" data-ar="من نحن" data-en="About Us">من نحن</div>
+      <h2 class="section-title" data-ar="شركة ملاءة للاستشارات المالية" data-en="Malaah Financial Consulting Co.">شركة ملاءة للاستشارات المالية</h2>
+    </div>
+    <div style="max-width:820px;margin:0 auto;background:#fff;border-radius:16px;padding:36px 40px;box-shadow:0 4px 24px rgba(27,58,82,0.07);border:1px solid #e5e9f0;">
+      <p style="font-size:1.05rem;line-height:2;color:#2d3748;font-weight:400;" data-ar="كيان سعودي متخصص في تقديم الاستشارات المالية لغير الأوراق المالية وأعمال وساطة التمويل، حيث تتولى كافة أعباء وطرق معالجة الديون وتقديم الحلول والاستشارات المالية للعميل من واقع خبرتنا الطويلة في مجال البنوك والمؤسسات المالية." data-en="A Saudi entity specialized in providing financial consulting for non-securities and financing brokerage, undertaking all aspects of debt resolution and providing financial solutions and advice to clients based on our extensive experience in the banking and financial sector.">كيان سعودي متخصص في تقديم الاستشارات المالية لغير الأوراق المالية وأعمال وساطة التمويل، حيث تتولى كافة أعباء وطرق معالجة الديون وتقديم الحلول والاستشارات المالية للعميل من واقع خبرتنا الطويلة في مجال البنوك والمؤسسات المالية.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- خدماتنا المالية box -->
+<section style="background:#fff;padding:40px 0 10px;">
+  <div class="section-inner">
+    <div style="text-align:center;margin-bottom:28px;">
+      <div style="display:inline-block;background:#f0f4f8;border-radius:30px;padding:6px 20px;font-size:12px;font-weight:700;color:#5a88ae;letter-spacing:0.06em;margin-bottom:12px;" data-ar="ما نقدمه" data-en="What We Offer">ما نقدمه</div>
+      <h2 style="font-size:1.6rem;font-weight:900;color:#1b3a52;" data-ar="خدماتنا المالية" data-en="Our Financial Services">خدماتنا المالية</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;max-width:900px;margin:0 auto;">
+      <div onclick="openModal('consulting')" style="background:#f8f9fc;border:1.5px solid #e5e9f0;border-radius:14px;padding:22px 20px;cursor:pointer;transition:all 0.2s;text-align:center;" onmouseover="this.style.borderColor='#5a88ae';this.style.background='#fff'" onmouseout="this.style.borderColor='#e5e9f0';this.style.background='#f8f9fc'">
+        <div style="font-size:2rem;margin-bottom:10px;">💼</div>
+        <div style="font-size:15px;font-weight:800;color:#1b3a52;margin-bottom:6px;" data-ar="الاستشارات المالية" data-en="Financial Consulting">الاستشارات المالية</div>
+        <div style="font-size:12px;color:#6b7280;" data-ar="تسهيلات بنكية وتسويات مالية" data-en="Bank facilities & financial settlements">تسهيلات بنكية وتسويات مالية</div>
+      </div>
+      <div onclick="openModal('realestate')" style="background:#f8f9fc;border:1.5px solid #e5e9f0;border-radius:14px;padding:22px 20px;cursor:pointer;transition:all 0.2s;text-align:center;" onmouseover="this.style.borderColor='#5a88ae';this.style.background='#fff'" onmouseout="this.style.borderColor='#e5e9f0';this.style.background='#f8f9fc'">
+        <div style="font-size:2rem;margin-bottom:10px;">🏠</div>
+        <div style="font-size:15px;font-weight:800;color:#1b3a52;margin-bottom:6px;" data-ar="التمويل العقاري" data-en="Real Estate Financing">التمويل العقاري</div>
+        <div style="font-size:12px;color:#6b7280;" data-ar="سكني وتجاري للأفراد والشركات" data-en="Residential & commercial for individuals & companies">سكني وتجاري للأفراد والشركات</div>
+      </div>
+      <div onclick="openModal('auto')" style="background:#f8f9fc;border:1.5px solid #e5e9f0;border-radius:14px;padding:22px 20px;cursor:pointer;transition:all 0.2s;text-align:center;" onmouseover="this.style.borderColor='#5a88ae';this.style.background='#fff'" onmouseout="this.style.borderColor='#e5e9f0';this.style.background='#f8f9fc'">
+        <div style="font-size:2rem;margin-bottom:10px;">🚗</div>
+        <div style="font-size:15px;font-weight:800;color:#1b3a52;margin-bottom:6px;" data-ar="تمويل السيارات" data-en="Auto Financing">تمويل السيارات</div>
+        <div style="font-size:12px;color:#6b7280;" data-ar="حلول سريعة للأفراد والمؤسسات" data-en="Fast solutions for individuals & companies">حلول سريعة للأفراد والمؤسسات</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-section" style="padding:32px 0;">
+  <div class="section-inner">
+    <div class="stats-grid">
+      <div class="stat-item reveal">
+        <div class="stat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <div class="stat-num" style="font-size:2.2rem;">+<span>500</span></div>
+        <div class="stat-label" data-ar="عميل تم خدمته بنجاح" data-en="Successfully Served Clients">عميل تم خدمته بنجاح</div>
+      </div>
+      <div class="stat-item reveal" style="transition-delay:0.1s">
+        <div class="stat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <div class="stat-num" style="font-size:2.2rem;"><span>20</span>+</div>
+        <div class="stat-label" data-ar="سنوات خبرة في السوق المالية" data-en="Years in Financial Markets">سنوات خبرة في السوق المالية</div>
+      </div>
+      <div class="stat-item reveal" style="transition-delay:0.2s">
+        <div class="stat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        </div>
+        <div class="stat-num" style="font-size:2.2rem;">+<span>20</span></div>
+        <div class="stat-label" data-ar="شريك بنكي ومؤسسة تمويلية" data-en="Banking & Finance Partners">شريك بنكي ومؤسسة تمويلية</div>
+      </div>
+      <div class="stat-item reveal" style="transition-delay:0.3s">
+        <div class="stat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div class="stat-num" style="font-size:2.2rem;"><span>98</span><span style="font-size:30px">%</span></div>
+        <div class="stat-label" data-ar="معدل رضا العملاء" data-en="Client Satisfaction Rate">معدل رضا العملاء</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-eyebrow" data-ar="ما نقدمه" data-en="What We Offer">ما نقدمه</div>
+      <h2 class="section-title" data-ar="خدماتنا المالية المتكاملة" data-en="Our Integrated Financial Services">خدماتنا المالية المتكاملة</h2>
+      <p class="section-subtitle" data-ar="نوفر حلولاً تمويلية شاملة تناسب احتياجات الأفراد والشركات، مع الالتزام بأعلى معايير الجودة والشفافية." data-en="We provide comprehensive financing solutions tailored to individuals and businesses, committed to the highest standards of quality and transparency.">نوفر حلولاً تمويلية شاملة تناسب احتياجات الأفراد والشركات، مع الالتزام بأعلى معايير الجودة والشفافية.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal" onclick="openModal('consulting')">
+        <div class="service-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 class="service-title" data-ar="الاستشارات المالية" data-en="Financial Consulting">الاستشارات المالية</h3>
+        <p class="service-desc" data-ar="نقدم استشارات متخصصة في التسهيلات البنكية والتسويات المالية للشركات والمؤسسات، مع حلول ذكية وفعالة تضمن لك أفضل النتائج." data-en="We provide specialized consulting on bank facilities and financial settlements for companies and institutions, with smart and effective solutions ensuring the best outcomes.">نقدم استشارات متخصصة في التسهيلات البنكية والتسويات المالية للشركات والمؤسسات، مع حلول ذكية وفعالة تضمن لك أفضل النتائج.</p>
+        <span class="service-link" data-ar="اطلب استشارة ←" data-en="Request Consultation →">اطلب استشارة ←</span>
+      </div>
+      <div class="service-card featured reveal" style="transition-delay:0.1s" onclick="openModal('realestate')">
+        <div class="service-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3 class="service-title" data-ar="التمويل العقاري" data-en="Real Estate Financing">التمويل العقاري</h3>
+        <p class="service-desc" data-ar="حلول تمويلية عقارية متكاملة للأفراد والشركات — سكنية وتجارية. نرافقك في كل خطوة للحصول على أفضل معدلات التمويل من البنوك الشريكة." data-en="Comprehensive real estate financing solutions for individuals and companies — residential and commercial. We guide you every step to secure the best rates from partner banks.">حلول تمويلية عقارية متكاملة للأفراد والشركات — سكنية وتجارية. نرافقك في كل خطوة للحصول على أفضل معدلات التمويل من البنوك الشريكة.</p>
+        <span class="service-link" data-ar="احصل على تمويل عقاري ←" data-en="Get Real Estate Financing →">احصل على تمويل عقاري ←</span>
+      </div>
+      <div class="service-card reveal" style="transition-delay:0.2s" onclick="openModal('auto')">
+        <div class="service-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M19 17H5a2 2 0 01-2-2V7a2 2 0 012-2h14"/><path d="M16 17l2-5H5l2 5"/><circle cx="7.5" cy="17.5" r="1.5"/><circle cx="16.5" cy="17.5" r="1.5"/></svg>
+        </div>
+        <h3 class="service-title" data-ar="تمويل السيارات" data-en="Auto Financing">تمويل السيارات</h3>
+        <p class="service-desc" data-ar="نقدم حلولاً تمويلية سريعة وموثوقة لشراء السيارات للأفراد والشركات، مع إجراءات مبسطة وخيارات تناسب جميع الاحتياجات." data-en="We offer fast and reliable financing solutions for purchasing vehicles for individuals and companies, with streamlined procedures and options that suit all needs.">نقدم حلولاً تمويلية سريعة وموثوقة لشراء السيارات للأفراد والشركات، مع إجراءات مبسطة وخيارات تناسب جميع الاحتياجات.</p>
+        <span class="service-link" data-ar="مول سيارتك ←" data-en="Finance Your Car →">مول سيارتك ←</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="how">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-eyebrow" data-ar="خطوات بسيطة" data-en="Simple Steps">خطوات بسيطة</div>
+      <h2 class="section-title" data-ar="كيف نعمل؟" data-en="How It Works">كيف نعمل؟</h2>
+      <p class="section-subtitle" data-ar="عملية واضحة وشفافة تضمن لك الحصول على أفضل خيارات التمويل في أسرع وقت." data-en="A clear and transparent process that guarantees you the best financing options in the shortest time.">عملية واضحة وشفافة تضمن لك الحصول على أفضل خيارات التمويل في أسرع وقت.</p>
+    </div>
+    <div class="steps-container">
+      <div class="step-item reveal">
+        <div class="step-num">١</div>
+        <div class="step-title" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</div>
+        <p class="step-desc" data-ar="أرسل لنا طلبك عبر الموقع أو تواصل معنا عبر الواتساب أو الهاتف." data-en="Send us your request via the website, WhatsApp, or phone.">أرسل لنا طلبك عبر الموقع أو تواصل معنا عبر الواتساب أو الهاتف.</p>
+      </div>
+      <div class="step-item reveal" style="transition-delay:0.1s">
+        <div class="step-num">٢</div>
+        <div class="step-title" data-ar="دراسة الحالة" data-en="Case Study">دراسة الحالة</div>
+        <p class="step-desc" data-ar="يقوم فريقنا المتخصص بدراسة وضعك المالي وتحديد أفضل الحلول المناسبة." data-en="Our specialized team studies your financial situation and identifies the best solutions.">يقوم فريقنا المتخصص بدراسة وضعك المالي وتحديد أفضل الحلول المناسبة.</p>
+      </div>
+      <div class="step-item reveal" style="transition-delay:0.2s">
+        <div class="step-num">٣</div>
+        <div class="step-title" data-ar="عروض البنوك" data-en="Bank Offers">عروض البنوك</div>
+        <p class="step-desc" data-ar="نقدم لك أفضل العروض من شبكتنا الواسعة من البنوك والمؤسسات التمويلية." data-en="We present you the best offers from our wide network of banks and financial institutions.">نقدم لك أفضل العروض من شبكتنا الواسعة من البنوك والمؤسسات التمويلية.</p>
+      </div>
+      <div class="step-item reveal" style="transition-delay:0.3s">
+        <div class="step-num">٤</div>
+        <div class="step-title" data-ar="إتمام التمويل" data-en="Complete Financing">إتمام التمويل</div>
+        <p class="step-desc" data-ar="نرافقك في إتمام جميع الإجراءات حتى استلامك للتمويل المطلوب." data-en="We accompany you in completing all procedures until you receive your financing.">نرافقك في إتمام جميع الإجراءات حتى استلامك للتمويل المطلوب.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-eyebrow" data-ar="أسئلة مكررة" data-en="Common Questions">أسئلة مكررة</div>
+      <h2 class="section-title" data-ar="الأسئلة الشائعة" data-en="Frequently Asked Questions">الأسئلة الشائعة</h2>
+    </div>
+    <div class="faq-list reveal" id="faq-list"></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-eyebrow" data-ar="تواصل معنا" data-en="Get in Touch">تواصل معنا</div>
+      <h2 class="section-title" data-ar="نحن هنا لمساعدتك" data-en="We're Here to Help">نحن هنا لمساعدتك</h2>
+      <p class="section-subtitle" data-ar="فريقنا جاهز للإجابة على استفساراتك وتقديم أفضل الحلول التمويلية لك." data-en="Our team is ready to answer your inquiries and provide you with the best financing solutions.">فريقنا جاهز للإجابة على استفساراتك وتقديم أفضل الحلول التمويلية لك.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div class="contact-card">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 .82h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <div>
+            <div class="contact-card-label" data-ar="هاتف" data-en="Phone">هاتف</div>
+            <div class="contact-card-value">
+              <a href="tel:+966112177002" dir="ltr">+966 11 217 7002</a><br/>
+              <a href="tel:+966537222690" dir="ltr">+966 53 722 2690</a>
+            </div>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <div class="contact-card-label" data-ar="البريد الإلكتروني" data-en="Email">البريد الإلكتروني</div>
+            <div class="contact-card-value"><a href="mailto:info@malaah.com.sa">info@malaah.com.sa</a></div>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="contact-card-label" data-ar="العنوان" data-en="Address">العنوان</div>
+            <div class="contact-card-value" data-ar="الرياض، طريق الأمير محمد بن عبدالعزيز، 12331" data-en="Riyadh, Prince Mohammed bin Abdulaziz Road, 12331">الرياض، طريق الأمير محمد بن عبدالعزيز، 12331</div>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <div>
+            <div class="contact-card-label" data-ar="أوقات العمل" data-en="Working Hours">أوقات العمل</div>
+            <div class="contact-card-value" data-ar="الأحد – الخميس: ٩:٣٠ص – ٥م" data-en="Sunday – Thursday: 9:30AM – 5PM">الأحد – الخميس: ٩:٣٠ص – ٥م</div>
+          </div>
+        </div>
+        <a href="https://wa.me/966537222690" target="_blank" class="whatsapp-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          <span data-ar="تواصل عبر واتساب" data-en="Chat on WhatsApp">تواصل عبر واتساب</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+  <div style="font-size:11px;color:#6b7280;font-weight:600;margin-top:4px;line-height:1.4;" data-ar="نسبة رضا العملاء" data-en="Client Satisfaction">نسبة رضا العملاء</div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <p data-ar="شركة ملاءة للاستشارات المالية لغير الأوراق المالية _ نقدم حلولاً تمويلية متكاملة للأفراد والشركات في المملكة العربية السعودية." data-en="Malaah Financial Consulting Co. for non-securities — providing comprehensive financing solutions for individuals and businesses in Saudi Arabia.">شركة ملاءة للاستشارات المالية لغير الأوراق المالية _ نقدم حلولاً تمويلية متكاملة للأفراد والشركات في المملكة العربية السعودية.</p>
+      </div>
+      <div>
+        <div class="footer-col-title" data-ar="روابط سريعة" data-en="Quick Links">روابط سريعة</div>
+        <ul class="footer-links">
+          <li><a href="#services" class="nav-link" data-ar="خدماتنا" data-en="Services">خدماتنا</a></li>
+          <li><a href="#how" class="nav-link" data-ar="كيف نعمل" data-en="How It Works">كيف نعمل</a></li>
+          <li><a href="#faq" class="nav-link" data-ar="الأسئلة الشائعة" data-en="FAQ">الأسئلة الشائعة</a></li>
+          <li><a href="#contact" class="nav-link" data-ar="تواصل معنا" data-en="Contact">تواصل معنا</a></li>
+          <li><a href="https://maps.google.com/?q=شركة+ملاءة+للاستشارات+المالية+الرياض" target="_blank" class="nav-link" data-ar="موقعنا على الخريطة" data-en="Our Location">📍 موقعنا على الخريطة</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title" data-ar="خدماتنا" data-en="Services">خدماتنا</div>
+        <ul class="footer-links">
+          <li><a href="#" data-ar="الاستشارات المالية" data-en="Financial Consulting">الاستشارات المالية</a></li>
+          <li><a href="#" data-ar="التمويل العقاري" data-en="Real Estate Financing">التمويل العقاري</a></li>
+          <li><a href="#" data-ar="تمويل السيارات" data-en="Auto Financing">تمويل السيارات</a></li>
+          <li><a href="#" data-ar="التسهيلات البنكية" data-en="Bank Facilities">التسهيلات البنكية</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-bottom">
+      <span data-ar="© 2026 شركة ملاءة للاستشارات المالية. جميع الحقوق محفوظة." data-en="© 2026 Malaah Financial Consulting Co. All rights reserved.">© 2026 شركة ملاءة للاستشارات المالية. جميع الحقوق محفوظة.</span>
+      <a href="https://wa.me/966537222690" target="_blank" style="color:rgba(255,255,255,0.4);text-decoration:none;font-size:12px;" data-ar="واتساب" data-en="WhatsApp">واتساب</a>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/966537222690" target="_blank" class="float-wa" id="float-wa">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+  <span class="float-wa-label" data-ar="تواصل معنا" data-en="Chat with us">تواصل معنا</span>
+</a>
+
+<!-- HUBSPOT FORMS MODAL -->
+<div class="hs-modal-overlay" id="hs-modal-overlay">
+  <div class="hs-modal" id="hs-modal">
+    <div class="hs-modal-header">
+      <div class="hs-modal-title" id="hs-modal-title">طلب خدمة</div>
+      <button class="modal-close" id="hs-modal-close">✕</button>
+    </div>
+    <div class="hs-modal-body" id="hs-modal-body"></div>
+  </div>
+</div>
+
+<script src="tweaks-panel.jsx" type="text/babel"></script>
+
+<script type="text/babel">
+const { useState, useEffect } = React;
+const isAR = () => document.documentElement.lang === 'ar';
+
+// ─── FAQ DATA ───────────────────────────────────────────────
+const faqData = [
+  {
+    q: { ar: 'ما هي الخدمات التي تقدمها ملاءة؟', en: 'What services does Malaah provide?' },
+    a: { ar: 'تقدم ملاءة خدمات الاستشارات المالية، التمويل العقاري (سكني وتجاري)، تمويل السيارات للأفراد والشركات، والتسهيلات البنكية والتسويات المالية.', en: 'Malaah provides financial consulting, real estate financing (residential and commercial), auto financing for individuals and companies, bank facilities, and financial settlements.' }
+  },
+  {
+    q: { ar: 'كم يستغرق الحصول على موافقة التمويل؟', en: 'How long does financing approval take?' },
+    a: { ar: 'تتفاوت المدة حسب نوع التمويل والبنك المختار، لكن فريقنا يعمل على تسريع الإجراءات للحصول على رد في أقصر وقت ممكن، وغالباً خلال ٣-٧ أيام عمل.', en: 'The duration varies depending on the type of financing and chosen bank, but our team works to expedite procedures to get a response in the shortest possible time, usually within 3-7 business days.' }
+  },
+  {
+    q: { ar: 'هل خدماتكم متاحة للأفراد والشركات؟', en: 'Are your services available to individuals and companies?' },
+    a: { ar: 'نعم، نخدم الأفراد والشركات والمؤسسات على حدٍّ سواء. لدينا حلول مخصصة لكل فئة تناسب متطلباتها واحتياجاتها الخاصة.', en: 'Yes, we serve individuals, companies, and institutions alike. We have customized solutions for each category that suit their specific requirements and needs.' }
+  },
+  {
+    q: { ar: 'ما هي البنوك التي تتعاملون معها؟', en: 'Which banks do you work with?' },
+    a: { ar: 'نعمل مع شبكة واسعة تضم أكثر من ٢٠ بنكاً ومؤسسة تمويلية معتمدة في المملكة العربية السعودية، مما يضمن لك الحصول على أفضل الخيارات المتاحة.', en: 'We work with a wide network of over 20 accredited banks and financing institutions in Saudi Arabia, ensuring you get the best available options.' }
+  },
+  {
+    q: { ar: 'هل الاستشارة الأولى مجانية؟', en: 'Is the initial consultation free?' },
+    a: { ar: 'نعم، الاستشارة الأولى مجانية تماماً. فريقنا سيتواصل معك لفهم احتياجاتك وتقديم أفضل الحلول الممكنة دون أي التزام مسبق.', en: 'Yes, the initial consultation is completely free. Our team will contact you to understand your needs and provide the best possible solutions without any prior commitment.' }
+  },
+  {
+    q: { ar: 'ما هي المستندات المطلوبة للتمويل العقاري؟', en: 'What documents are required for real estate financing?' },
+    a: { ar: 'تشمل المستندات الأساسية: الهوية الوطنية، كشف الراتب أو الإيرادات، كشف حساب بنكي (٦ أشهر)، وثيقة العقار. سيوضح لك مستشارونا القائمة الكاملة حسب حالتك.', en: 'Basic documents include: national ID, salary or income statement, bank account statement (6 months), property document. Our consultants will clarify the full list according to your case.' }
+  }
+];
+
+// ─── FAQ COMPONENT ───────────────────────────────────────────
+function FAQList({ lang }) {
+  const [openIdx, setOpenIdx] = useState(null);
+  return (
+    <div className="faq-list">
+      {faqData.map((item, i) => (
+        <div key={i} className={`faq-item${openIdx === i ? ' open' : ''}`}>
+          <button className="faq-question" onClick={() => setOpenIdx(openIdx === i ? null : i)}>
+            <span>{item.q[lang]}</span>
+            <span className="faq-icon">+</span>
+          </button>
+          <div className="faq-answer">{item.a[lang]}</div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+// ─── CONTACT FORM ─────────────────────────────────────────────
+function ContactForm({ lang }) {
+  const t = {
+    ar: { name: 'الاسم الكامل', phone: 'رقم الجوال', email: 'البريد الإلكتروني', service: 'الخدمة المطلوبة', services: ['الاستشارات المالية','التمويل العقاري','تمويل السيارات','التسهيلات البنكية'], msg: 'رسالتك', send: 'إرسال الرسالة', success: 'تم الإرسال بنجاح!', successMsg: 'سنتواصل معك خلال ٢٤ ساعة.' },
+    en: { name: 'Full Name', phone: 'Phone Number', email: 'Email Address', service: 'Service Needed', services: ['Financial Consulting','Real Estate Financing','Auto Financing','Bank Facilities'], msg: 'Your Message', send: 'Send Message', success: 'Sent Successfully!', successMsg: "We'll contact you within 24 hours." }
+  }[lang];
+  const [sent, setSent] = useState(false);
+  const [form, setForm] = useState({ name:'', phone:'', email:'', service:'', msg:'' });
+  const update = k => e => setForm(f => ({...f, [k]: e.target.value}));
+  const submit = e => { e.preventDefault(); setSent(true); };
+  if (sent) return (
+    <div className="form-success">
+      <div className="success-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div className="success-title">{t.success}</div>
+      <div className="success-msg">{t.successMsg}</div>
+    </div>
+  );
+  return (
+    <form onSubmit={submit}>
+      <div className="contact-form-row">
+        <div className="form-group"><label className="form-label">{t.name}</label><input className="form-input" value={form.name} onChange={update('name')} required /></div>
+        <div className="form-group"><label className="form-label">{t.phone}</label><input className="form-input" type="tel" value={form.phone} onChange={update('phone')} required /></div>
+      </div>
+      <div className="form-group"><label className="form-label">{t.email}</label><input className="form-input" type="email" value={form.email} onChange={update('email')} /></div>
+      <div className="form-group">
+        <label className="form-label">{t.service}</label>
+        <select className="form-select" value={form.service} onChange={update('service')}>
+          <option value=""></option>
+          {t.services.map(s => <option key={s} value={s}>{s}</option>)}
+        </select>
+      </div>
+      <div className="form-group"><label className="form-label">{t.msg}</label><textarea className="form-textarea" value={form.msg} onChange={update('msg')} /></div>
+      <button type="submit" className="btn-primary" style={{width:'100%',justifyContent:'center'}}>{t.send}</button>
+    </form>
+  );
+}
+
+// ─── MULTI-STEP MODAL FORMS ────────────────────────────────────
+function ConsultingForm({ lang, onClose }) {
+  const [step, setStep] = useState(0);
+  const [form, setForm] = useState({ type: '', facility: '', amount: '', name: '', phone: '', notes: '' });
+  const [done, setDone] = useState(false);
+  const t = {
+    ar: {
+      title: 'طلب استشارة مالية',
+      steps: ['نوع العميل','تفاصيل الطلب','بياناتك'],
+      typeLabel: 'أنت...', types: ['فرد','شركة / مؤسسة'],
+      facilityLabel: 'نوع الخدمة المطلوبة',
+      facilities: ['تسهيلات بنكية','تسويات مالية','إعادة هيكلة','استشارة عامة'],
+      amountLabel: 'المبلغ التقريبي (ريال)', amountPh: 'مثال: 500,000',
+      nameLabel: 'الاسم الكامل', phonePh: '05xxxxxxxx',
+      notesLabel: 'ملاحظات إضافية (اختياري)',
+      next: 'التالي', back: 'رجوع', submit: 'إرسال الطلب',
+      success: 'تم إرسال طلبك!', successMsg: 'سيتواصل معك أحد مستشارينا خلال ٢٤ ساعة لمناقشة وضعك المالي.',
+      close: 'إغلاق'
+    },
+    en: {
+      title: 'Request Financial Consulting',
+      steps: ['Client Type','Request Details','Your Info'],
+      typeLabel: 'You are...', types: ['Individual','Company / Institution'],
+      facilityLabel: 'Service Needed',
+      facilities: ['Bank Facilities','Financial Settlements','Restructuring','General Consulting'],
+      amountLabel: 'Approximate Amount (SAR)', amountPh: 'e.g. 500,000',
+      nameLabel: 'Full Name', phonePh: '+966 5x xxx xxxx',
+      notesLabel: 'Additional Notes (optional)',
+      next: 'Next', back: 'Back', submit: 'Submit Request',
+      success: 'Request Sent!', successMsg: "One of our consultants will contact you within 24 hours to discuss your financial situation.",
+      close: 'Close'
+    }
+  }[lang];
+
+  const update = k => v => setForm(f => ({...f, [k]: v}));
+  const canNext0 = form.type !== '';
+  const canNext1 = form.facility !== '' && form.amount !== '';
+  const canSubmit = form.name !== '' && form.phone !== '';
+
+  if (done) return (
+    <><div className="modal-header"><div className="modal-title">{t.title}</div><button className="modal-close" onClick={onClose}>✕</button></div>
+    <div className="modal-body"><div className="form-success">
+      <div className="success-icon"><svg viewBox="0 0 24 24" fill="none" strokeWidth="2.5" strokeLinecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div className="success-title">{t.success}</div><div className="success-msg">{t.successMsg}</div>
+    </div></div>
+    <div className="modal-footer"><button className="btn-primary" onClick={onClose}>{t.close}</button></div></>
+  );
+
+  return (<>
+    <div className="modal-header"><div className="modal-title">{t.title}</div><button className="modal-close" onClick={onClose}>✕</button></div>
+    <div className="modal-body">
+      <div className="progress-bar">
+        {[0,1,2].map(i => <div key={i} className={`progress-step ${i < step ? 'done' : i === step ? 'active' : ''}`}></div>)}
+      </div>
+      {step === 0 && (<>
+        <div className="form-step-title">{t.typeLabel}</div>
+        <div className="form-step-subtitle" style={{marginBottom:'20px'}}>{lang==='ar'?'اختر نوع العميل لتخصيص الخدمة لك':'Choose client type to personalize your service'}</div>
+        <div className="form-radio-group" style={{flexDirection:'column'}}>
+          {t.types.map(tp => <div key={tp} className={`form-radio-option${form.type===tp?' selected':''}`} onClick={() => update('type')(tp)}>{tp}</div>)}
+        </div>
+      </>)}
+      {step === 1 && (<>
+        <div className="form-step-title">{t.facilityLabel}</div>
+        <div className="form-radio-group" style={{flexDirection:'column',marginBottom:'20px'}}>
+          {t.facilities.map(f => <div key={f} className={`form-radio-option${form.facility===f?' selected':''}`} onClick={() => update('facility')(f)}>{f}</div>)}
+        </div>
+        <div className="form-group"><label className="form-label">{t.amountLabel}</label><input className="form-input" placeholder={t.amountPh} value={form.amount} onChange={e=>update('amount')(e.target.value)} /></div>
+      </>)}
+      {step === 2 && (<>
+        <div className="form-group"><label className="form-label">{t.nameLabel}</label><input className="form-input" value={form.name} onChange={e=>update('name')(e.target.value)} required /></div>
+        <div className="form-group"><label className="form-label">{lang==='ar'?'رقم الجوال':'Phone Number'}</label><input className="form-input" type="tel" placeholder={t.phonePh} value={form.phone} onChange={e=>update('phone')(e.target.value)} required /></div>
+        <div className="form-group"><label className="form-label">{t.notesLabel}</label><textarea className="form-textarea" style={{minHeight:'80px'}} value={form.notes} onChange={e=>update('notes')(e.target.value)} /></div>
+      </>)}
+    </div>
+    <div className="modal-footer">
+      {step > 0 && <button className="btn-secondary" onClick={() => setStep(s=>s-1)}>{t.back}</button>}
+      {step < 2 && <button className="btn-primary" disabled={step===0?!canNext0:!canNext1} onClick={() => setStep(s=>s+1)}>{t.next}</button>}
+      {step === 2 && <button className="btn-primary" disabled={!canSubmit} onClick={() => setDone(true)}>{t.submit}</button>}
+    </div>
+  </>);
+}
+
+function RealEstateForm({ lang, onClose }) {
+  const [step, setStep] = useState(0);
+  const [form, setForm] = useState({ clientType:'', propertyType:'', purpose:'', amount:'', name:'', phone:'' });
+  const [done, setDone] = useState(false);
+  const t = {
+    ar: {
+      title: 'طلب تمويل عقاري',
+      steps: ['نوع العميل','تفاصيل العقار','بياناتك'],
+      clientTypes: ['فرد','شركة / مؤسسة'],
+      propTypes: ['عقار سكني','عقار تجاري سكني','عقار تجاري'],
+      purposes: ['تمويل عقار','رهن عقار'],
+      amountLabel: 'قيمة العقار التقريبية (ريال)',
+      next: 'التالي', back: 'رجوع', submit: 'تقديم الطلب',
+      success: 'تم تقديم طلبك!', successMsg: 'سيتواصل معك فريقنا المتخصص خلال ٢٤ ساعة.',
+      close: 'إغلاق'
+    },
+    en: {
+      title: 'Real Estate Financing Request',
+      steps: ['Client Type','Property Details','Your Info'],
+      clientTypes: ['Individual','Company / Institution'],
+      propTypes: ['Residential Property','Mixed-Use Property','Commercial Property'],
+      purposes: ['Finance Property','Mortgage Property'],
+      amountLabel: 'Approximate Property Value (SAR)',
+      next: 'Next', back: 'Back', submit: 'Submit Request',
+      success: 'Request Submitted!', successMsg: 'Our specialized team will contact you within 24 hours.',
+      close: 'Close'
+    }
+  }[lang];
+
+  const update = k => v => setForm(f => ({...f, [k]: v}));
+  if (done) return (
+    <><div className="modal-header"><div className="modal-title">{t.title}</div><button className="modal-close" onClick={onClose}>✕</button></div>
+    <div className="modal-body"><div className="form-success">
+      <div className="success-icon"><svg viewBox="0 0 24 24" fill="none" strokeWidth="2.5" strokeLinecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div className="success-title">{t.success}</div><div className="success-msg">{t.successMsg}</div>
+    </div></div>
+    <div className="modal-footer"><button className="btn-primary" onClick={onClose}>{t.close}</button></div></>
+  );
+  return (<>
+    <div className="modal-header"><div className="modal-title">{t.title}</div><button className="modal-close" onClick={onClose}>✕</button></div>
+    <div className="modal-body">
+      <div className="progress-bar">
+        {[0,1,2].map(i => <div key={i} className={`progress-step ${i < step ? 'done' : i === step ? 'active' : ''}`}></div>)}
+      </div>
+      {step === 0 && (<>
+        <div className="form-step-title">{lang==='ar'?'نوع العميل':'Client Type'}</div>
+        <div className="form-radio-group" style={{flexDirection:'column',marginBottom:'20px'}}>
+          {t.clientTypes.map(ct => <div key={ct} className={`form-radio-option${form.clientType===ct?' selected':''}`} onClick={() => update('clientType')(ct)}>{ct}</div>)}
+        </div>
+      </>)}
+      {step === 1 && (<>
+        <div className="form-step-title">{lang==='ar'?'نوع العقار':'Property Type'}</div>
+        <div className="form-radio-group" style={{flexDirection:'column',marginBottom:'20px'}}>
+          {t.propTypes.map(pt => <div key={pt} className={`form-radio-option${form.propertyType===pt?' selected':''}`} onClick={() => update('propertyType')(pt)}>{pt}</div>)}
+        </div>
+        <div className="form-step-title">{lang==='ar'?'الغرض':'Purpose'}</div>
+        <div className="form-radio-group" style={{marginBottom:'20px'}}>
+          {t.purposes.map(p => <div key={p} className={`form-radio-option${form.purpose===p?' selected':''}`} onClick={() => update('purpose')(p)}>{p}</div>)}
+        </div>
+        <div className="form-group"><label className="form-label">{t.amountLabel}</label><input className="form-input" placeholder={lang==='ar'?'مثال: 1,000,000':'e.g. 1,000,000'} value={form.amount} onChange={e=>update('amount')(e.target.value)} /></div>
+      </>)}
+      {step === 2 && (<>
+        <div className="form-group"><label className="form-label">{lang==='ar'?'الاسم الكامل':'Full Name'}</label><input className="form-input" value={form.name} onChange={e=>update('name')(e.target.value)} /></div>
+        <div className="form-group"><label className="form-label">{lang==='ar'?'رقم الجوال':'Phone Number'}</label><input className="form-input" type="tel" value={form.phone} onChange={e=>update('phone')(e.target.value)} /></div>
+      </>)}
+    </div>
+    <div className="modal-footer">
+      {step > 0 && <button className="btn-secondary" onClick={() => setStep(s=>s-1)}>{t.back}</button>}
+      {step < 2 && <button className="btn-primary" disabled={step===0?!form.clientType:!form.propertyType} onClick={() => setStep(s=>s+1)}>{t.next}</button>}
+      {step === 2 && <button className="btn-primary" disabled={!form.name||!form.phone} onClick={() => setDone(true)}>{t.submit}</button>}
+    </div>
+  </>);
+}
+
+function AutoForm({ lang, onClose }) {
+  const [step, setStep] = useState(0);
+  const [form, setForm] = useState({ clientType:'', carType:'', amount:'', name:'', phone:'' });
+  const [done, setDone] = useState(false);
+  const t = {
+    ar: { title: 'طلب تمويل سيارة', clientTypes: ['فرد','شركة / مؤسسة'], carTypes: ['سيارة جديدة','سيارة مستعملة','أسطول سيارات'], amountLabel: 'سعر السيارة التقريبي (ريال)', next: 'التالي', back: 'رجوع', submit: 'تقديم الطلب', success: 'تم تقديم طلبك!', successMsg: 'سنتواصل معك في أقرب وقت.', close: 'إغلاق' },
+    en: { title: 'Auto Financing Request', clientTypes: ['Individual','Company / Institution'], carTypes: ['New Car','Used Car','Fleet'], amountLabel: 'Approximate Car Price (SAR)', next: 'Next', back: 'Back', submit: 'Submit Request', success: 'Request Submitted!', successMsg: "We'll contact you soon.", close: 'Close' }
+  }[lang];
+
+  const update = k => v => setForm(f => ({...f, [k]: v}));
+  if (done) return (
+    <><div className="modal-header"><div className="modal-title">{t.title}</div><button className="modal-close" onClick={onClose}>✕</button></div>
+    <div className="modal-body"><div className="form-success">
+      <div className="success-icon"><svg viewBox="0 0 24 24" fill="none" strokeWidth="2.5" strokeLinecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div className="success-title">{t.success}</div><div className="success-msg">{t.successMsg}</div>
+    </div></div>
+    <div className="modal-footer"><button className="btn-primary" onClick={onClose}>{t.close}</button></div></>
+  );
+  return (<>
+    <div className="modal-header"><div className="modal-title">{t.title}</div><button className="modal-close" onClick={onClose}>✕</button></div>
+    <div className="modal-body">
+      <div className="progress-bar">
+        {[0,1,2].map(i => <div key={i} className={`progress-step ${i < step ? 'done' : i === step ? 'active' : ''}`}></div>)}
+      </div>
+      {step === 0 && (<>
+        <div className="form-step-title">{lang==='ar'?'نوع العميل':'Client Type'}</div>
+        <div className="form-radio-group" style={{flexDirection:'column',marginBottom:'20px'}}>
+          {t.clientTypes.map(ct => <div key={ct} className={`form-radio-option${form.clientType===ct?' selected':''}`} onClick={() => update('clientType')(ct)}>{ct}</div>)}
+        </div>
+      </>)}
+      {step === 1 && (<>
+        <div className="form-step-title">{lang==='ar'?'نوع السيارة':'Vehicle Type'}</div>
+        <div className="form-radio-group" style={{flexDirection:'column',marginBottom:'20px'}}>
+          {t.carTypes.map(ct => <div key={ct} className={`form-radio-option${form.carType===ct?' selected':''}`} onClick={() => update('carType')(ct)}>{ct}</div>)}
+        </div>
+        <div className="form-group"><label className="form-label">{t.amountLabel}</label><input className="form-input" placeholder={lang==='ar'?'مثال: 150,000':'e.g. 150,000'} value={form.amount} onChange={e=>update('amount')(e.target.value)} /></div>
+      </>)}
+      {step === 2 && (<>
+        <div className="form-group"><label className="form-label">{lang==='ar'?'الاسم الكامل':'Full Name'}</label><input className="form-input" value={form.name} onChange={e=>update('name')(e.target.value)} /></div>
+        <div className="form-group"><label className="form-label">{lang==='ar'?'رقم الجوال':'Phone Number'}</label><input className="form-input" type="tel" value={form.phone} onChange={e=>update('phone')(e.target.value)} /></div>
+      </>)}
+    </div>
+    <div className="modal-footer">
+      {step > 0 && <button className="btn-secondary" onClick={() => setStep(s=>s-1)}>{t.back}</button>}
+      {step < 2 && <button className="btn-primary" disabled={step===0?!form.clientType:!form.carType} onClick={() => setStep(s=>s+1)}>{t.next}</button>}
+      {step === 2 && <button className="btn-primary" disabled={!form.name||!form.phone} onClick={() => setDone(true)}>{t.submit}</button>}
+    </div>
+  </>);
+}
+
+// ─── TWEAK DEFAULTS ───────────────────────────────────────────
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "primaryColor": "#1b3a52",
+  "accentColor": "#4a7fa0"
+}/*EDITMODE-END*/;
+
+// ─── HUBSPOT FORM CONFIG ───────────────────────────────────────
+// Replace these portal/form IDs with your real HubSpot IDs
+const HS_CONFIG = {
+  consulting: {
+    portalId: 'YOUR_PORTAL_ID',
+    formId: 'YOUR_CONSULTING_FORM_ID',
+    title: { ar: 'الاستشارات المالية', en: 'Financial Consulting' }
+  },
+  realestate: {
+    portalId: 'YOUR_PORTAL_ID',
+    formId: 'YOUR_REALESTATE_FORM_ID',
+    title: { ar: 'التمويل العقاري', en: 'Real Estate Financing' }
+  },
+  auto: {
+    portalId: 'YOUR_PORTAL_ID',
+    formId: 'YOUR_AUTO_FORM_ID',
+    title: { ar: 'تمويل السيارات', en: 'Auto Financing' }
+  }
+};
+
+// ─── MAIN APP ──────────────────────────────────────────────────
+function App() {
+  const [lang, setLang] = useState('ar');
+
+  const tweaksResult = useTweaks(TWEAK_DEFAULTS);
+  const tweaks = tweaksResult[0];
+  const setTweak = tweaksResult[1];
+
+  // Apply tweaks
+  useEffect(() => {
+    document.documentElement.style.setProperty('--navy', tweaks.primaryColor);
+    document.documentElement.style.setProperty('--navy-deep', tweaks.primaryColor);
+    document.documentElement.style.setProperty('--navy-mid', tweaks.accentColor);
+    document.documentElement.style.setProperty('--steel', tweaks.accentColor);
+  }, [tweaks.primaryColor, tweaks.accentColor]);
+
+  // Apply language
+  useEffect(() => {
+    const html = document.documentElement;
+    html.lang = lang;
+    html.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    document.body.classList.toggle('en', lang === 'en');
+    document.getElementById('lang-toggle').textContent = lang === 'ar' ? 'EN' : 'عربي';
+    // Update all translatable elements
+    document.querySelectorAll('[data-ar]').forEach(el => {
+      el.textContent = lang === 'ar' ? el.getAttribute('data-ar') : el.getAttribute('data-en');
+    });
+    document.querySelectorAll('.hero-service-arrow').forEach(el => {
+      el.textContent = lang === 'ar' ? '←' : '→';
+    });
+    // floating WA position
+    const fwa = document.getElementById('float-wa');
+    if (fwa) { fwa.style.left = lang === 'ar' ? '28px' : 'auto'; fwa.style.right = lang === 'ar' ? 'auto' : '28px'; }
+  }, [lang]);
+
+  // Mount FAQ & Contact Form into portals (single root each)
+  const faqRootRef = React.useRef(null);
+  const contactRootRef = React.useRef(null);
+
+  useEffect(() => {
+    const faqEl = document.getElementById('faq-list');
+    if (faqEl && !faqRootRef.current) {
+      faqRootRef.current = ReactDOM.createRoot(faqEl);
+    }
+    if (faqRootRef.current) faqRootRef.current.render(<FAQList lang={lang} />);
+  }, [lang]);
+
+  useEffect(() => {
+    const el = document.getElementById('contact-form-area');
+    if (el && !contactRootRef.current) {
+      contactRootRef.current = ReactDOM.createRoot(el);
+    }
+    if (contactRootRef.current) contactRootRef.current.render(<ContactForm lang={lang} />);
+  }, [lang]);
+
+  // Lang toggle handler
+  useEffect(() => {
+    const btn = document.getElementById('lang-toggle');
+    btn.onclick = () => setLang(l => l === 'ar' ? 'en' : 'ar');
+  }, []);
+
+  // Hero CTA
+  useEffect(() => {
+    const btn = document.getElementById('hero-cta-btn');
+    if (btn) btn.onclick = () => setModalType('consulting');
+  }, []);
+
+  return (<>
+    <TweaksPanel>
+      <TweakSection label="Brand Colors">
+        <TweakColor id="primaryColor" label="Primary" value={tweaks.primaryColor} options={['#1b3a52','#1a3a5c','#2c3e50','#1b4332']} onChange={v => setTweak('primaryColor', v)} />
+        <TweakColor id="accentColor" label="Accent" value={tweaks.accentColor} options={['#4a7fa0','#2e86c1','#5dade2','#2980b9']} onChange={v => setTweak('accentColor', v)} />
+      </TweakSection>
+    </TweaksPanel>
+  </>);
+}
+
+let __appRoot = null;
+function mountApp() {
+  if (typeof window.useTweaks === 'undefined') {
+    setTimeout(mountApp, 50);
+    return;
+  }
+  const el = document.getElementById('react-root');
+  if (!__appRoot) __appRoot = ReactDOM.createRoot(el);
+  __appRoot.render(<App />);
+}
+mountApp();
+</script>
+
+<div id="react-root"></div>
+
+<script>
+// Navbar scroll effect
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+});
+
+// Mobile menu
+document.getElementById('hamburger').onclick = () => document.getElementById('mobile-menu').classList.add('open');
+document.getElementById('mobile-close').onclick = closeMobileMenu;
+function closeMobileMenu() { document.getElementById('mobile-menu').classList.remove('open'); }
+
+// ─── HUBSPOT MODAL SYSTEM ─────────────────────────────────────
+const HS_TITLES = {
+  consulting: { ar: 'طلب استشارة مالية — الاستشارات المالية والتسهيلات البنكية', en: 'Financial Consulting & Bank Facilities Request' },
+  realestate: { ar: 'طلب تمويل عقاري — سكني أو تجاري', en: 'Real Estate Financing Request — Residential or Commercial' },
+  auto:       { ar: 'طلب تمويل سيارة — أفراد وشركات', en: 'Auto Financing Request — Individuals & Companies' }
+};
+
+// HubSpot embed instructions per service
+const HS_INSTRUCTIONS = {
+  consulting: {
+    ar: 'استبدل هذا القسم بكود HubSpot الخاص بنموذج الاستشارات المالية',
+    en: 'Replace this section with your HubSpot Financial Consulting form embed code'
+  },
+  realestate: {
+    ar: 'استبدل هذا القسم بكود HubSpot الخاص بنموذج التمويل العقاري',
+    en: 'Replace this section with your HubSpot Real Estate Financing form embed code'
+  },
+  auto: {
+    ar: 'استبدل هذا القسم بكود HubSpot الخاص بنموذج تمويل السيارات',
+    en: 'Replace this section with your HubSpot Auto Financing form embed code'
+  }
+};
+
+// Paste your HubSpot embed scripts here (one per service):
+const HS_EMBEDS = {
+  consulting: `<iframe 
+      src="https://2gd10h.share-eu1.hsforms.com/2GI6DctmDSU2afF4TtOYd6w"
+      width="100%"
+      height="640"
+      frameborder="0"
+      scrolling="auto"
+      style="border:none;border-radius:12px;min-height:640px;"
+      title="نموذج ملاءة"
+    ></iframe>`,
+  realestate: `<iframe 
+      src="https://2gd10h.share-eu1.hsforms.com/2GI6DctmDSU2afF4TtOYd6w"
+      width="100%"
+      height="640"
+      frameborder="0"
+      scrolling="auto"
+      style="border:none;border-radius:12px;min-height:640px;"
+      title="نموذج ملاءة"
+    ></iframe>`,
+  auto: `<iframe 
+      src="https://2gd10h.share-eu1.hsforms.com/2GI6DctmDSU2afF4TtOYd6w"
+      width="100%"
+      height="640"
+      frameborder="0"
+      scrolling="auto"
+      style="border:none;border-radius:12px;min-height:640px;"
+      title="نموذج ملاءة"
+    ></iframe>`
+};
+
+function getLang() {
+  return document.documentElement.lang === 'ar' ? 'ar' : 'en';
+}
+
+function openModal(type) {
+  const lang = getLang();
+  const overlay = document.getElementById('hs-modal-overlay');
+  const title   = document.getElementById('hs-modal-title');
+  const body    = document.getElementById('hs-modal-body');
+
+  title.textContent = HS_TITLES[type][lang];
+
+  // Check if a real embed exists (has hs-form-frame or script tag)
+  const embedCode = HS_EMBEDS[type] || '';
+  const hasRealEmbed = embedCode.includes('hs-form-frame') || embedCode.includes('hbspt.forms') || embedCode.includes('<iframe') || embedCode.includes('hsforms.com');
+
+  if (hasRealEmbed) {
+    // Render the actual HubSpot form
+    body.innerHTML = `<div id="hs-form-container-${type}" style="min-height:300px;padding:8px 0;"></div>`;
+    const container = document.getElementById(`hs-form-container-${type}`);
+
+    // Parse embed: inject divs first, then scripts
+    const tmp = document.createElement('div');
+    tmp.innerHTML = embedCode;
+
+    // Add non-script elements
+    tmp.querySelectorAll(':not(script)').forEach(el => container.appendChild(el.cloneNode(true)));
+
+    // Load scripts sequentially
+    const scripts = [...tmp.querySelectorAll('script')];
+    function loadScript(i) {
+      if (i >= scripts.length) return;
+      const s = scripts[i];
+      const ns = document.createElement('script');
+      if (s.src) {
+        ns.src = s.src;
+        ns.onload = () => loadScript(i + 1);
+        ns.onerror = () => loadScript(i + 1);
+      } else {
+        ns.textContent = s.textContent;
+        loadScript(i + 1);
+      }
+      document.head.appendChild(ns);
+    }
+    loadScript(0);
+  } else {
+    // Show placeholder with embed instructions
+    body.innerHTML = `
+      <div style="text-align:center; padding: 8px 0 16px;">
+        <div style="display:inline-flex;gap:8px;border:1.5px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:24px;">
+          ${['consulting','realestate','auto'].map(t =>
+            `<button onclick="switchHsTab('${t}')" id="hs-tab-${t}"
+              style="padding:10px 18px;background:${t===type?'var(--navy)':'none'};color:${t===type?'white':'var(--text-muted)'};
+                     border:none;cursor:pointer;font-family:inherit;font-size:13px;font-weight:600;transition:all 0.2s;"
+              data-ar="${HS_TITLES[t].ar}" data-en="${HS_TITLES[t].en}">
+              ${HS_TITLES[t][lang]}
+            </button>`
+          ).join('')}
+        </div>
+        <div style="background:var(--off-white);border:1.5px dashed var(--border);border-radius:14px;padding:36px 24px;">
+          <div style="width:56px;height:56px;background:var(--steel-pale);border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--navy-mid)" stroke-width="1.8" stroke-linecap="round">
+              <rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 8h10M7 12h6M7 16h4"/>
+            </svg>
+          </div>
+          <div style="font-size:16px;font-weight:700;color:var(--navy);margin-bottom:10px;" id="hs-ph-title">
+            ${lang==='ar' ? 'نموذج HubSpot' : 'HubSpot Form'}
+          </div>
+          <div style="font-size:13px;color:var(--text-muted);line-height:1.7;max-width:380px;margin:0 auto 20px;" id="hs-ph-desc">
+            ${HS_INSTRUCTIONS[type][lang]}
+          </div>
+          <div style="background:#f0f4f8;border:1px solid var(--border);border-radius:8px;padding:14px 18px;font-family:monospace;font-size:11.5px;color:var(--navy);text-align:left;direction:ltr;line-height:1.7;">
+&lt;script charset="utf-8" type="text/javascript"<br/>
+&nbsp;&nbsp;src="//js.hsforms.net/forms/embed/v2.js"&gt;<br/>
+&lt;/script&gt;<br/>
+&lt;script&gt;<br/>
+&nbsp;&nbsp;hbspt.forms.create({<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;region: "na1",<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;portalId: "YOUR_PORTAL_ID",<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;formId: "YOUR_FORM_ID"<br/>
+&nbsp;&nbsp;});<br/>
+&lt;/script&gt;
+          </div>
+          <p style="font-size:12px;color:var(--text-muted);margin-top:14px;">
+            ${lang==='ar' ? 'استبدل الكود أعلاه بكود نموذج HubSpot الخاص بك' : 'Replace the code above with your actual HubSpot form embed code'}
+          </p>
+        </div>
+      </div>`;
+    window.__currentHsType = type;
+  }
+
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function switchHsTab(type) {
+  document.getElementById('hs-modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+  setTimeout(() => openModal(type), 50);
+}
+
+document.getElementById('hs-modal-close').onclick = () => {
+  document.getElementById('hs-modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+};
+document.getElementById('hs-modal-overlay').addEventListener('click', e => {
+  if (e.target === document.getElementById('hs-modal-overlay')) {
+    document.getElementById('hs-modal-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+});
+
+// Scroll reveal
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// Smooth anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); closeMobileMenu(); }
+  });
+});
+</script>
+
+</body>
+</html>
