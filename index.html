@@ -1084,29 +1084,64 @@
 </section>
 
 
-<!-- خدماتنا المالية box -->
-<section style="background:#fff;padding:40px 0 10px;">
-  <div class="section-inner">
-    <div style="text-align:center;margin-bottom:28px;">
-      <div style="display:inline-block;background:#f0f4f8;border-radius:30px;padding:6px 20px;font-size:12px;font-weight:700;color:#5a88ae;letter-spacing:0.06em;margin-bottom:12px;" data-ar="ما نقدمه" data-en="What We Offer">ما نقدمه</div>
-      <h2 style="font-size:1.6rem;font-weight:900;color:#1b3a52;" data-ar="خدماتنا المالية" data-en="Our Financial Services">خدماتنا المالية</h2>
+<!-- خدماتنا المالية - new design -->
+<style>
+.finance-section{padding:90px 24px;background:#f8fafc;}
+.finance-section .section-head{text-align:center;margin-bottom:60px;}
+.finance-section .section-head span{display:inline-block;color:#06b6d4;font-size:16px;font-weight:700;margin-bottom:14px;}
+.finance-section .section-head h2{margin:0;color:#0f172a;font-size:clamp(28px,4vw,48px);font-weight:900;line-height:1.2;}
+.finance-grid{max-width:1100px;margin:0 auto;display:grid;gap:18px;}
+.finance-card{position:relative;display:flex;align-items:center;justify-content:space-between;gap:30px;background:#ffffff;border:1px solid #e2e8f0;border-radius:26px;padding:34px 40px;text-decoration:none;transition:.3s ease;overflow:hidden;cursor:pointer;}
+.finance-card::before{content:"";position:absolute;top:0;right:0;width:0%;height:100%;background:#0f172a;transition:.4s ease;z-index:0;}
+.finance-card:hover::before{width:100%;}
+.finance-card:hover{transform:translateY(-5px);border-color:#0f172a;}
+.finance-card > *{position:relative;z-index:2;}
+.finance-num{min-width:80px;color:#cbd5e1;font-size:52px;font-weight:900;line-height:1;}
+.finance-content{flex:1;}
+.finance-content h3{margin:0 0 8px;color:#0f172a;font-size:28px;font-weight:800;transition:.3s ease;}
+.finance-content p{margin:0;color:#64748b;font-size:16px;line-height:1.7;transition:.3s ease;}
+.finance-arrow{font-size:30px;color:#06b6d4;transition:.3s ease;}
+.finance-card:hover .finance-content h3,
+.finance-card:hover .finance-content p,
+.finance-card:hover .finance-num{color:#ffffff;}
+.finance-card:hover .finance-arrow{transform:translateX(-8px);color:#ffffff;}
+.finance-card.featured{border-color:#06b6d4;background:linear-gradient(135deg,#ffffff 0%,#f0fdfa 100%);}
+@media(max-width:768px){
+  .finance-card{flex-direction:column;align-items:flex-start;padding:28px 24px;}
+  .finance-num{font-size:38px;}
+  .finance-content h3{font-size:22px;}
+}
+</style>
+
+<section class="finance-section" dir="rtl">
+  <div class="section-head">
+    <span>خدماتنا المالية</span>
+    <h2>حلول مالية تناسب احتياجك</h2>
+  </div>
+  <div class="finance-grid">
+    <div class="finance-card" onclick="openModal('consulting')">
+      <div class="finance-num">01</div>
+      <div class="finance-content">
+        <h3>الاستشارات المالية</h3>
+        <p>تسهيلات بنكية وتسويات مالية</p>
+      </div>
+      <div class="finance-arrow">←</div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;max-width:900px;margin:0 auto;">
-      <div onclick="openModal('consulting')" style="background:#f8f9fc;border:1.5px solid #e5e9f0;border-radius:14px;padding:22px 20px;cursor:pointer;transition:all 0.2s;text-align:center;" onmouseover="this.style.borderColor='#5a88ae';this.style.background='#fff'" onmouseout="this.style.borderColor='#e5e9f0';this.style.background='#f8f9fc'">
-        <div style="font-size:2rem;margin-bottom:10px;">💼</div>
-        <div style="font-size:15px;font-weight:800;color:#1b3a52;margin-bottom:6px;" data-ar="الاستشارات المالية" data-en="Financial Consulting">الاستشارات المالية</div>
-        <div style="font-size:12px;color:#6b7280;" data-ar="تسهيلات بنكية وتسويات مالية" data-en="Bank facilities & financial settlements">تسهيلات بنكية وتسويات مالية</div>
+    <div class="finance-card featured" onclick="openModal('realestate')">
+      <div class="finance-num">02</div>
+      <div class="finance-content">
+        <h3>التمويل العقاري</h3>
+        <p>سكني وتجاري للأفراد والشركات</p>
       </div>
-      <div onclick="openModal('realestate')" style="background:#f8f9fc;border:1.5px solid #e5e9f0;border-radius:14px;padding:22px 20px;cursor:pointer;transition:all 0.2s;text-align:center;" onmouseover="this.style.borderColor='#5a88ae';this.style.background='#fff'" onmouseout="this.style.borderColor='#e5e9f0';this.style.background='#f8f9fc'">
-        <div style="font-size:2rem;margin-bottom:10px;">🏠</div>
-        <div style="font-size:15px;font-weight:800;color:#1b3a52;margin-bottom:6px;" data-ar="التمويل العقاري" data-en="Real Estate Financing">التمويل العقاري</div>
-        <div style="font-size:12px;color:#6b7280;" data-ar="سكني وتجاري للأفراد والشركات" data-en="Residential & commercial for individuals & companies">سكني وتجاري للأفراد والشركات</div>
+      <div class="finance-arrow">←</div>
+    </div>
+    <div class="finance-card" onclick="openModal('auto')">
+      <div class="finance-num">03</div>
+      <div class="finance-content">
+        <h3>تمويل السيارات</h3>
+        <p>حلول سريعة للأفراد والمؤسسات</p>
       </div>
-      <div onclick="openModal('auto')" style="background:#f8f9fc;border:1.5px solid #e5e9f0;border-radius:14px;padding:22px 20px;cursor:pointer;transition:all 0.2s;text-align:center;" onmouseover="this.style.borderColor='#5a88ae';this.style.background='#fff'" onmouseout="this.style.borderColor='#e5e9f0';this.style.background='#f8f9fc'">
-        <div style="font-size:2rem;margin-bottom:10px;">🚗</div>
-        <div style="font-size:15px;font-weight:800;color:#1b3a52;margin-bottom:6px;" data-ar="تمويل السيارات" data-en="Auto Financing">تمويل السيارات</div>
-        <div style="font-size:12px;color:#6b7280;" data-ar="حلول سريعة للأفراد والمؤسسات" data-en="Fast solutions for individuals & companies">حلول سريعة للأفراد والمؤسسات</div>
-      </div>
+      <div class="finance-arrow">←</div>
     </div>
   </div>
 </section>
