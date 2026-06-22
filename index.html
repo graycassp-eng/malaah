@@ -818,9 +818,9 @@
   .mobile-menu.open { visibility: visible; opacity: 1; pointer-events: all; transition: opacity 0.25s ease, visibility 0s; }
   .mobile-menu a { font-size: 20px; color: var(--navy); text-decoration: none; font-weight: 600; padding: 8px 16px; border-radius: 8px; transition: background 0.2s; }
   .mobile-menu a:hover { background: var(--steel-pale); }
-  .mobile-menu-close { position: absolute; top: 20px; left: 24px; font-size: 24px; cursor: pointer; color: var(--navy); background: none; border: none; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 8px; }
-  .mobile-menu-close:hover { background: var(--off-white); }
-  [dir="ltr"] .mobile-menu-close { left: auto; right: 24px; }
+  .mobile-menu-close { position: absolute; top: 16px; left: 16px; font-size: 28px; cursor: pointer; color: var(--navy); background: rgba(0,0,0,0.06); border: none; width: 48px; height: 48px; display: flex !important; align-items: center !important; justify-content: center !important; border-radius: 50%; z-index: 100; -webkit-appearance: none; appearance: none; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: background 0.2s; line-height: 1; }
+  .mobile-menu-close:hover { background: rgba(0,0,0,0.12); }
+  [dir="ltr"] .mobile-menu-close { left: auto; right: 16px; }
 
   @media (max-width: 900px) {
     .nav-links { display: none; }
@@ -872,7 +872,7 @@
     /* Mobile menu improvements */
     .mobile-menu { gap: 24px; }
     .mobile-menu a { font-size: 18px; }
-    .mobile-menu-close { top: 18px; font-size: 28px; }
+    .mobile-menu-close { top: 12px; font-size: 32px; width: 48px; height: 48px; }
     /* Modal mobile */
     .modal { border-radius: 16px; max-height: 95vh; }
     .modal-header { padding: 20px 18px 14px; }
