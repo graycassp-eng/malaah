@@ -6,15 +6,57 @@
 <meta name="theme-color" content="#1b3a52" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="description" content="شركة ملاءة للاستشارات المالية — استشارات مالية، تمويل عقاري، تمويل سيارات، وتسهيلات بنكية للأفراد والشركات في السعودية. استشارة مجانية!" />
+<meta name="keywords" content="استشارات مالية, تمويل عقاري, تمويل سيارات, تسهيلات بنكية, ملاءة, السعودية, الرياض" />
+<link rel="canonical" href="https://mallah.asaz.cloud/" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="شركة ملاءة للاستشارات المالية | Malaah Financial Consulting" />
+<meta property="og:description" content="استشارات مالية متكاملة — تمويل عقاري، سيارات، وتسهيلات بنكية في السعودية" />
+<meta property="og:url" content="https://mallah.asaz.cloud/" />
+<meta property="og:site_name" content="ملاءة" />
+<meta property="og:locale" content="ar_SA" />
+<meta property="og:locale:alternate" content="en_US" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="شركة ملاءة للاستشارات المالية | Malaah" />
+<meta name="twitter:description" content="استشارات مالية متكاملة — تمويل عقاري، سيارات، وتسهيلات بنكية في السعودية" />
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FinancialService",
+  "name": "شركة ملاءة للاستشارات المالية",
+  "alternateName": "Malaah Financial Consulting Co.",
+  "url": "https://mallah.asaz.cloud",
+  "telephone": "+966112177002",
+  "email": "info@malaah.com.sa",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "طريق الأمير محمد بن عبدالعزيز",
+    "addressLocality": "الرياض",
+    "addressRegion": "الرياض",
+    "postalCode": "12331",
+    "addressCountry": "SA"
+  },
+  "openingHours": "Su-Th 09:30-17:00",
+  "priceRange": "$$",
+  "areaServed": "SA",
+  "serviceType": ["Financial Consulting", "Real Estate Financing", "Auto Financing", "Bank Facilities"]
+}
+</script>
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="uploads/inverted_white.png" />
 <title>شركة ملاءة للاستشارات المالية | Malaah Financial Consulting Co.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
-
+<!-- React and Babel removed — all interactive features now use vanilla JS -->
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -30,7 +72,7 @@
     --border: #dde8ef;
     --text-primary: #1b3a52;
     --text-secondary: #4a6a80;
-    --text-muted: #7a9aae;
+    --text-muted: #5d8499;
     --gold: #c8a96e;
     --gold-light: #e8d5a8;
     --font-ar: 'IBM Plex Sans Arabic', sans-serif;
@@ -38,6 +80,11 @@
   }
 
   html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; } }
+
+  /* Skip to content */
+  .skip-link { position: absolute; top: -100%; left: 16px; background: var(--navy); color: white; padding: 8px 16px; border-radius: 0 0 8px 8px; z-index: 9999; font-size: 14px; text-decoration: none; }
+  .skip-link:focus { top: 0; }
 
   body {
     font-family: var(--font-ar);
@@ -1063,6 +1110,7 @@
 </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to content</a>
 
 <!-- Navbar -->
 <nav class="navbar" id="navbar">
@@ -1078,13 +1126,13 @@
       <li><a href="#contact" class="nav-link" data-ar="تواصل معنا" data-en="Contact">تواصل معنا</a></li>
     </ul>
     <div class="nav-right">
-      <button class="lang-toggle" id="lang-toggle">EN</button>
+      <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">EN</button>
       <a href="https://wa.me/966537222690" target="_blank" class="nav-wa">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
         <span data-ar="واتساب" data-en="WhatsApp">واتساب</span>
       </a>
       <a href="#contact" class="nav-cta" data-ar="ابدأ الآن" data-en="Get Started">ابدأ الآن</a>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
+      <button class="hamburger" id="hamburger" aria-label="فتح القائمة" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -1093,7 +1141,7 @@
 
 <!-- Mobile Menu -->
 <div class="mobile-menu" id="mobile-menu">
-  <button class="mobile-menu-close" id="mobile-close">✕</button>
+  <button class="mobile-menu-close" id="mobile-close" aria-label="إغلاق القائمة">✕</button>
   <a href="#about" onclick="closeMobileMenu()" class="nav-link" data-ar="من نحن" data-en="About Us">من نحن</a>
   <a href="#services" onclick="closeMobileMenu()" class="nav-link" data-ar="خدماتنا" data-en="Services">خدماتنا</a>
   <a href="#how" onclick="closeMobileMenu()" class="nav-link" data-ar="كيف نعمل" data-en="How It Works">كيف نعمل</a>
@@ -1102,8 +1150,8 @@
 </div>
 
 <!-- HERO -->
-<section style="padding: 0;">
-  <div class="hero">
+<!-- Hero -->
+<section class="hero" id="main-content">
     <div class="hero-content reveal">
       <div class="hero-badge">
         <div class="hero-badge-dot"></div>
@@ -1465,427 +1513,172 @@
 
 <!-- tweaks-panel.jsx removed — built-in defaults only -->
 
-<script type="text/babel">
-const { useState, useEffect } = React;
-const isAR = () => document.documentElement.lang === 'ar';
+<script>
+// ─── VANILLA JS — Language Toggle, FAQ, Contact Form, Modals ──
+(function() {
+  'use strict';
 
-// ─── TWEAKS STUB (replaces external tweaks-panel.jsx) ──────────
-window.useTweaks = function(defaults) {
-  const [vals, setVals] = React.useState(defaults);
-  const set = (k, v) => setVals(prev => ({...prev, [k]: v}));
-  return [vals, set];
-};
-window.TweaksPanel = function({children}) { return children; };
-window.TweakSection = function({label, children}) { return children; };
-window.TweakColor = function({id, label, value, options, onChange}) { return null; };
+  const isAR = () => document.documentElement.lang === 'ar';
 
-// ─── FAQ DATA ───────────────────────────────────────────────
-const faqData = [
-  {
-    q: { ar: 'ما هي الخدمات التي تقدمها ملاءة؟', en: 'What services does Malaah provide?' },
-    a: { ar: 'تقدم ملاءة خدمات الاستشارات المالية، التمويل العقاري (سكني وتجاري)، تمويل السيارات للأفراد والشركات، والتسهيلات البنكية والتسويات المالية.', en: 'Malaah provides financial consulting, real estate financing (residential and commercial), auto financing for individuals and companies, bank facilities, and financial settlements.' }
-  },
-  {
-    q: { ar: 'كم يستغرق الحصول على موافقة التمويل؟', en: 'How long does financing approval take?' },
-    a: { ar: 'تتفاوت المدة حسب نوع التمويل والبنك المختار، لكن فريقنا يعمل على تسريع الإجراءات للحصول على رد في أقصر وقت ممكن، وغالباً خلال ٣-٧ أيام عمل.', en: 'The duration varies depending on the type of financing and chosen bank, but our team works to expedite procedures to get a response in the shortest possible time, usually within 3-7 business days.' }
-  },
-  {
-    q: { ar: 'هل خدماتكم متاحة للأفراد والشركات؟', en: 'Are your services available to individuals and companies?' },
-    a: { ar: 'نعم، نخدم الأفراد والشركات والمؤسسات على حدٍّ سواء. لدينا حلول مخصصة لكل فئة تناسب متطلباتها واحتياجاتها الخاصة.', en: 'Yes, we serve individuals, companies, and institutions alike. We have customized solutions for each category that suit their specific requirements and needs.' }
-  },
-  {
-    q: { ar: 'ما هي البنوك التي تتعاملون معها؟', en: 'Which banks do you work with?' },
-    a: { ar: 'نعمل مع شبكة واسعة تضم أكثر من ٢٠ بنكاً ومؤسسة تمويلية معتمدة في المملكة العربية السعودية، مما يضمن لك الحصول على أفضل الخيارات المتاحة.', en: 'We work with a wide network of over 20 accredited banks and financing institutions in Saudi Arabia, ensuring you get the best available options.' }
-  },
-  {
-    q: { ar: 'هل الاستشارة الأولى مجانية؟', en: 'Is the initial consultation free?' },
-    a: { ar: 'نعم، الاستشارة الأولى مجانية تماماً. فريقنا سيتواصل معك لفهم احتياجاتك وتقديم أفضل الحلول الممكنة دون أي التزام مسبق.', en: 'Yes, the initial consultation is completely free. Our team will contact you to understand your needs and provide the best possible solutions without any prior commitment.' }
-  },
-  {
-    q: { ar: 'ما هي المستندات المطلوبة للتمويل العقاري؟', en: 'What documents are required for real estate financing?' },
-    a: { ar: 'تشمل المستندات الأساسية: الهوية الوطنية، كشف الراتب أو الإيرادات، كشف حساب بنكي (٦ أشهر)، وثيقة العقار. سيوضح لك مستشارونا القائمة الكاملة حسب حالتك.', en: 'Basic documents include: national ID, salary or income statement, bank account statement (6 months), property document. Our consultants will clarify the full list according to your case.' }
+  // ─── FAQ DATA ───────────────────────────────────────────────────
+  const faqData = [
+    { q: { ar: 'ما هي الخدمات التي تقدمها ملاءة؟', en: 'What services does Malaah provide?' }, a: { ar: 'تقدم ملاءة خدمات الاستشارات المالية، التمويل العقاري (سكني وتجاري)، تمويل السيارات للأفراد والشركات، والتسهيلات البنكية والتسويات المالية.', en: 'Malaah provides financial consulting, real estate financing (residential and commercial), auto financing for individuals and companies, bank facilities, and financial settlements.' } },
+    { q: { ar: 'كم يستغرق الحصول على موافقة التمويل؟', en: 'How long does financing approval take?' }, a: { ar: 'تتفاوت المدة حسب نوع التمويل والبنك المختار، لكن فريقنا يعمل على تسريع الإجراءات للحصول على رد في أقصر وقت ممكن، وغالباً خلال ٣-٧ أيام عمل.', en: 'The duration varies depending on the type of financing and chosen bank, but our team works to expedite procedures to get a response in the shortest possible time, usually within 3-7 business days.' } },
+    { q: { ar: 'هل خدماتكم متاحة للأفراد والشركات؟', en: 'Are your services available to individuals and companies?' }, a: { ar: 'نعم، نخدم الأفراد والشركات والمؤسسات على حدٍّ سواء. لدينا حلول مخصصة لكل فئة تناسب متطلباتها واحتياجاتها الخاصة.', en: 'Yes, we serve individuals, companies, and institutions alike. We have customized solutions for each category that suit their specific requirements and needs.' } },
+    { q: { ar: 'ما هي البنوك التي تتعاملون معها؟', en: 'Which banks do you work with?' }, a: { ar: 'نعمل مع شبكة واسعة تضم أكثر من ٢٠ بنكاً ومؤسسة تمويلية معتمدة في المملكة العربية السعودية، مما يضمن لك الحصول على أفضل الخيارات المتاحة.', en: 'We work with a wide network of over 20 accredited banks and financing institutions in Saudi Arabia, ensuring you get the best available options.' } },
+    { q: { ar: 'هل الاستشارة الأولى مجانية؟', en: 'Is the initial consultation free?' }, a: { ar: 'نعم، الاستشارة الأولى مجانية تماماً. فريقنا سيتواصل معك لفهم احتياجاتك وتقديم أفضل الحلول الممكنة دون أي التزام مسبق.', en: 'Yes, the initial consultation is completely free. Our team will contact you to understand your needs and provide the best possible solutions without any prior commitment.' } },
+    { q: { ar: 'ما هي المستندات المطلوبة للتمويل العقاري؟', en: 'What documents are required for real estate financing?' }, a: { ar: 'تشمل المستندات الأساسية: الهوية الوطنية، كشف الراتب أو الإيرادات، كشف حساب بنكي (٦ أشهر)، وثيقة العقار. سيوضح لك مستشارونا القائمة الكاملة حسب حالتك.', en: 'Basic documents include: national ID, salary or income statement, bank account statement (6 months), property document. Our consultants will clarify the full list according to your case.' } }
+  ];
+
+  // ─── FAQ RENDER ─────────────────────────────────────────────────
+  function renderFAQ(lang) {
+    const container = document.getElementById('faq-list');
+    if (!container) return;
+    container.innerHTML = faqData.map((item, i) =>
+      '<div class="faq-item" role="region">' +
+        '<button class="faq-question" aria-expanded="false" onclick="toggleFAQ(this,' + i + ')">' +
+          '<span>' + item.q[lang] + '</span>' +
+          '<span class="faq-icon">+</span>' +
+        '</button>' +
+        '<div class="faq-answer" id="faq-answer-' + i + '">' + item.a[lang] + '</div>' +
+      '</div>'
+    ).join('');
   }
-];
-
-// ─── FAQ COMPONENT ───────────────────────────────────────────
-function FAQList({ lang }) {
-  const [openIdx, setOpenIdx] = useState(null);
-  return (
-    <div className="faq-list">
-      {faqData.map((item, i) => (
-        <div key={i} className={`faq-item${openIdx === i ? ' open' : ''}`}>
-          <button className="faq-question" onClick={() => setOpenIdx(openIdx === i ? null : i)}>
-            <span>{item.q[lang]}</span>
-            <span className="faq-icon">+</span>
-          </button>
-          <div className="faq-answer">{item.a[lang]}</div>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-// ─── CONTACT FORM ─────────────────────────────────────────────
-function ContactForm({ lang }) {
-  const t = {
-    ar: { name: 'الاسم الكامل', phone: 'رقم الجوال', email: 'البريد الإلكتروني', service: 'الخدمة المطلوبة', services: ['الاستشارات المالية','التمويل العقاري','تمويل السيارات','التسهيلات البنكية'], msg: 'رسالتك', send: 'إرسال الرسالة', success: 'تم الإرسال بنجاح!', successMsg: 'سنتواصل معك خلال ٢٤ ساعة.' },
-    en: { name: 'Full Name', phone: 'Phone Number', email: 'Email Address', service: 'Service Needed', services: ['Financial Consulting','Real Estate Financing','Auto Financing','Bank Facilities'], msg: 'Your Message', send: 'Send Message', success: 'Sent Successfully!', successMsg: "We'll contact you within 24 hours." }
-  }[lang];
-  const [sent, setSent] = useState(false);
-  const [form, setForm] = useState({ name:'', phone:'', email:'', service:'', msg:'' });
-  const update = k => e => setForm(f => ({...f, [k]: e.target.value}));
-  const submit = e => { e.preventDefault(); setSent(true); };
-  if (sent) return (
-    <div className="form-success">
-      <div className="success-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-      <div className="success-title">{t.success}</div>
-      <div className="success-msg">{t.successMsg}</div>
-    </div>
-  );
-  return (
-    <form onSubmit={submit}>
-      <div className="contact-form-row">
-        <div className="form-group"><label className="form-label">{t.name}</label><input className="form-input" value={form.name} onChange={update('name')} required /></div>
-        <div className="form-group"><label className="form-label">{t.phone}</label><input className="form-input" type="tel" value={form.phone} onChange={update('phone')} required /></div>
-      </div>
-      <div className="form-group"><label className="form-label">{t.email}</label><input className="form-input" type="email" value={form.email} onChange={update('email')} /></div>
-      <div className="form-group">
-        <label className="form-label">{t.service}</label>
-        <select className="form-select" value={form.service} onChange={update('service')}>
-          <option value=""></option>
-          {t.services.map(s => <option key={s} value={s}>{s}</option>)}
-        </select>
-      </div>
-      <div className="form-group"><label className="form-label">{t.msg}</label><textarea className="form-textarea" value={form.msg} onChange={update('msg')} /></div>
-      <button type="submit" className="btn-primary" style={{width:'100%',justifyContent:'center'}}>{t.send}</button>
-    </form>
-  );
-}
-
-// ─── MULTI-STEP MODAL FORMS ────────────────────────────────────
-function ConsultingForm({ lang, onClose }) {
-  const [step, setStep] = useState(0);
-  const [form, setForm] = useState({ type: '', facility: '', amount: '', name: '', phone: '', notes: '' });
-  const [done, setDone] = useState(false);
-  const t = {
-    ar: {
-      title: 'طلب استشارة مالية',
-      steps: ['نوع العميل','تفاصيل الطلب','بياناتك'],
-      typeLabel: 'أنت...', types: ['فرد','شركة / مؤسسة'],
-      facilityLabel: 'نوع الخدمة المطلوبة',
-      facilities: ['تسهيلات بنكية','تسويات مالية','إعادة هيكلة','استشارة عامة'],
-      amountLabel: 'المبلغ التقريبي (ريال)', amountPh: 'مثال: 500,000',
-      nameLabel: 'الاسم الكامل', phonePh: '05xxxxxxxx',
-      notesLabel: 'ملاحظات إضافية (اختياري)',
-      next: 'التالي', back: 'رجوع', submit: 'إرسال الطلب',
-      success: 'تم إرسال طلبك!', successMsg: 'سيتواصل معك أحد مستشارينا خلال ٢٤ ساعة لمناقشة وضعك المالي.',
-      close: 'إغلاق'
-    },
-    en: {
-      title: 'Request Financial Consulting',
-      steps: ['Client Type','Request Details','Your Info'],
-      typeLabel: 'You are...', types: ['Individual','Company / Institution'],
-      facilityLabel: 'Service Needed',
-      facilities: ['Bank Facilities','Financial Settlements','Restructuring','General Consulting'],
-      amountLabel: 'Approximate Amount (SAR)', amountPh: 'e.g. 500,000',
-      nameLabel: 'Full Name', phonePh: '+966 5x xxx xxxx',
-      notesLabel: 'Additional Notes (optional)',
-      next: 'Next', back: 'Back', submit: 'Submit Request',
-      success: 'Request Sent!', successMsg: "One of our consultants will contact you within 24 hours to discuss your financial situation.",
-      close: 'Close'
+  window.toggleFAQ = function(btn, idx) {
+    const item = btn.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => {
+      el.classList.remove('open');
+      el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
     }
-  }[lang];
+  };
 
-  const update = k => v => setForm(f => ({...f, [k]: v}));
-  const canNext0 = form.type !== '';
-  const canNext1 = form.facility !== '' && form.amount !== '';
-  const canSubmit = form.name !== '' && form.phone !== '';
-
-  if (done) return (
-    <><div className="modal-header"><div className="modal-title">{t.title}</div><button className="modal-close" onClick={onClose}>✕</button></div>
-    <div className="modal-body"><div className="form-success">
-      <div className="success-icon"><svg viewBox="0 0 24 24" fill="none" strokeWidth="2.5" strokeLinecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-      <div className="success-title">{t.success}</div><div className="success-msg">{t.successMsg}</div>
-    </div></div>
-    <div className="modal-footer"><button className="btn-primary" onClick={onClose}>{t.close}</button></div></>
-  );
-
-  return (<>
-    <div className="modal-header"><div className="modal-title">{t.title}</div><button className="modal-close" onClick={onClose}>✕</button></div>
-    <div className="modal-body">
-      <div className="progress-bar">
-        {[0,1,2].map(i => <div key={i} className={`progress-step ${i < step ? 'done' : i === step ? 'active' : ''}`}></div>)}
-      </div>
-      {step === 0 && (<>
-        <div className="form-step-title">{t.typeLabel}</div>
-        <div className="form-step-subtitle" style={{marginBottom:'20px'}}>{lang==='ar'?'اختر نوع العميل لتخصيص الخدمة لك':'Choose client type to personalize your service'}</div>
-        <div className="form-radio-group" style={{flexDirection:'column'}}>
-          {t.types.map(tp => <div key={tp} className={`form-radio-option${form.type===tp?' selected':''}`} onClick={() => update('type')(tp)}>{tp}</div>)}
-        </div>
-      </>)}
-      {step === 1 && (<>
-        <div className="form-step-title">{t.facilityLabel}</div>
-        <div className="form-radio-group" style={{flexDirection:'column',marginBottom:'20px'}}>
-          {t.facilities.map(f => <div key={f} className={`form-radio-option${form.facility===f?' selected':''}`} onClick={() => update('facility')(f)}>{f}</div>)}
-        </div>
-        <div className="form-group"><label className="form-label">{t.amountLabel}</label><input className="form-input" placeholder={t.amountPh} value={form.amount} onChange={e=>update('amount')(e.target.value)} /></div>
-      </>)}
-      {step === 2 && (<>
-        <div className="form-group"><label className="form-label">{t.nameLabel}</label><input className="form-input" value={form.name} onChange={e=>update('name')(e.target.value)} required /></div>
-        <div className="form-group"><label className="form-label">{lang==='ar'?'رقم الجوال':'Phone Number'}</label><input className="form-input" type="tel" placeholder={t.phonePh} value={form.phone} onChange={e=>update('phone')(e.target.value)} required /></div>
-        <div className="form-group"><label className="form-label">{t.notesLabel}</label><textarea className="form-textarea" style={{minHeight:'80px'}} value={form.notes} onChange={e=>update('notes')(e.target.value)} /></div>
-      </>)}
-    </div>
-    <div className="modal-footer">
-      {step > 0 && <button className="btn-secondary" onClick={() => setStep(s=>s-1)}>{t.back}</button>}
-      {step < 2 && <button className="btn-primary" disabled={step===0?!canNext0:!canNext1} onClick={() => setStep(s=>s+1)}>{t.next}</button>}
-      {step === 2 && <button className="btn-primary" disabled={!canSubmit} onClick={() => setDone(true)}>{t.submit}</button>}
-    </div>
-  </>);
-}
-
-function RealEstateForm({ lang, onClose }) {
-  const [step, setStep] = useState(0);
-  const [form, setForm] = useState({ clientType:'', propertyType:'', purpose:'', amount:'', name:'', phone:'' });
-  const [done, setDone] = useState(false);
-  const t = {
-    ar: {
-      title: 'طلب تمويل عقاري',
-      steps: ['نوع العميل','تفاصيل العقار','بياناتك'],
-      clientTypes: ['فرد','شركة / مؤسسة'],
-      propTypes: ['عقار سكني','عقار تجاري سكني','عقار تجاري'],
-      purposes: ['تمويل عقار','رهن عقار'],
-      amountLabel: 'قيمة العقار التقريبية (ريال)',
-      next: 'التالي', back: 'رجوع', submit: 'تقديم الطلب',
-      success: 'تم تقديم طلبك!', successMsg: 'سيتواصل معك فريقنا المتخصص خلال ٢٤ ساعة.',
-      close: 'إغلاق'
-    },
-    en: {
-      title: 'Real Estate Financing Request',
-      steps: ['Client Type','Property Details','Your Info'],
-      clientTypes: ['Individual','Company / Institution'],
-      propTypes: ['Residential Property','Mixed-Use Property','Commercial Property'],
-      purposes: ['Finance Property','Mortgage Property'],
-      amountLabel: 'Approximate Property Value (SAR)',
-      next: 'Next', back: 'Back', submit: 'Submit Request',
-      success: 'Request Submitted!', successMsg: 'Our specialized team will contact you within 24 hours.',
-      close: 'Close'
-    }
-  }[lang];
-
-  const update = k => v => setForm(f => ({...f, [k]: v}));
-  if (done) return (
-    <><div className="modal-header"><div className="modal-title">{t.title}</div><button className="modal-close" onClick={onClose}>✕</button></div>
-    <div className="modal-body"><div className="form-success">
-      <div className="success-icon"><svg viewBox="0 0 24 24" fill="none" strokeWidth="2.5" strokeLinecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-      <div className="success-title">{t.success}</div><div className="success-msg">{t.successMsg}</div>
-    </div></div>
-    <div className="modal-footer"><button className="btn-primary" onClick={onClose}>{t.close}</button></div></>
-  );
-  return (<>
-    <div className="modal-header"><div className="modal-title">{t.title}</div><button className="modal-close" onClick={onClose}>✕</button></div>
-    <div className="modal-body">
-      <div className="progress-bar">
-        {[0,1,2].map(i => <div key={i} className={`progress-step ${i < step ? 'done' : i === step ? 'active' : ''}`}></div>)}
-      </div>
-      {step === 0 && (<>
-        <div className="form-step-title">{lang==='ar'?'نوع العميل':'Client Type'}</div>
-        <div className="form-radio-group" style={{flexDirection:'column',marginBottom:'20px'}}>
-          {t.clientTypes.map(ct => <div key={ct} className={`form-radio-option${form.clientType===ct?' selected':''}`} onClick={() => update('clientType')(ct)}>{ct}</div>)}
-        </div>
-      </>)}
-      {step === 1 && (<>
-        <div className="form-step-title">{lang==='ar'?'نوع العقار':'Property Type'}</div>
-        <div className="form-radio-group" style={{flexDirection:'column',marginBottom:'20px'}}>
-          {t.propTypes.map(pt => <div key={pt} className={`form-radio-option${form.propertyType===pt?' selected':''}`} onClick={() => update('propertyType')(pt)}>{pt}</div>)}
-        </div>
-        <div className="form-step-title">{lang==='ar'?'الغرض':'Purpose'}</div>
-        <div className="form-radio-group" style={{marginBottom:'20px'}}>
-          {t.purposes.map(p => <div key={p} className={`form-radio-option${form.purpose===p?' selected':''}`} onClick={() => update('purpose')(p)}>{p}</div>)}
-        </div>
-        <div className="form-group"><label className="form-label">{t.amountLabel}</label><input className="form-input" placeholder={lang==='ar'?'مثال: 1,000,000':'e.g. 1,000,000'} value={form.amount} onChange={e=>update('amount')(e.target.value)} /></div>
-      </>)}
-      {step === 2 && (<>
-        <div className="form-group"><label className="form-label">{lang==='ar'?'الاسم الكامل':'Full Name'}</label><input className="form-input" value={form.name} onChange={e=>update('name')(e.target.value)} /></div>
-        <div className="form-group"><label className="form-label">{lang==='ar'?'رقم الجوال':'Phone Number'}</label><input className="form-input" type="tel" value={form.phone} onChange={e=>update('phone')(e.target.value)} /></div>
-      </>)}
-    </div>
-    <div className="modal-footer">
-      {step > 0 && <button className="btn-secondary" onClick={() => setStep(s=>s-1)}>{t.back}</button>}
-      {step < 2 && <button className="btn-primary" disabled={step===0?!form.clientType:!form.propertyType} onClick={() => setStep(s=>s+1)}>{t.next}</button>}
-      {step === 2 && <button className="btn-primary" disabled={!form.name||!form.phone} onClick={() => setDone(true)}>{t.submit}</button>}
-    </div>
-  </>);
-}
-
-function AutoForm({ lang, onClose }) {
-  const [step, setStep] = useState(0);
-  const [form, setForm] = useState({ clientType:'', carType:'', amount:'', name:'', phone:'' });
-  const [done, setDone] = useState(false);
-  const t = {
-    ar: { title: 'طلب تمويل سيارة', clientTypes: ['فرد','شركة / مؤسسة'], carTypes: ['سيارة جديدة','سيارة مستعملة','أسطول سيارات'], amountLabel: 'سعر السيارة التقريبي (ريال)', next: 'التالي', back: 'رجوع', submit: 'تقديم الطلب', success: 'تم تقديم طلبك!', successMsg: 'سنتواصل معك في أقرب وقت.', close: 'إغلاق' },
-    en: { title: 'Auto Financing Request', clientTypes: ['Individual','Company / Institution'], carTypes: ['New Car','Used Car','Fleet'], amountLabel: 'Approximate Car Price (SAR)', next: 'Next', back: 'Back', submit: 'Submit Request', success: 'Request Submitted!', successMsg: "We'll contact you soon.", close: 'Close' }
-  }[lang];
-
-  const update = k => v => setForm(f => ({...f, [k]: v}));
-  if (done) return (
-    <><div className="modal-header"><div className="modal-title">{t.title}</div><button className="modal-close" onClick={onClose}>✕</button></div>
-    <div className="modal-body"><div className="form-success">
-      <div className="success-icon"><svg viewBox="0 0 24 24" fill="none" strokeWidth="2.5" strokeLinecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-      <div className="success-title">{t.success}</div><div className="success-msg">{t.successMsg}</div>
-    </div></div>
-    <div className="modal-footer"><button className="btn-primary" onClick={onClose}>{t.close}</button></div></>
-  );
-  return (<>
-    <div className="modal-header"><div className="modal-title">{t.title}</div><button className="modal-close" onClick={onClose}>✕</button></div>
-    <div className="modal-body">
-      <div className="progress-bar">
-        {[0,1,2].map(i => <div key={i} className={`progress-step ${i < step ? 'done' : i === step ? 'active' : ''}`}></div>)}
-      </div>
-      {step === 0 && (<>
-        <div className="form-step-title">{lang==='ar'?'نوع العميل':'Client Type'}</div>
-        <div className="form-radio-group" style={{flexDirection:'column',marginBottom:'20px'}}>
-          {t.clientTypes.map(ct => <div key={ct} className={`form-radio-option${form.clientType===ct?' selected':''}`} onClick={() => update('clientType')(ct)}>{ct}</div>)}
-        </div>
-      </>)}
-      {step === 1 && (<>
-        <div className="form-step-title">{lang==='ar'?'نوع السيارة':'Vehicle Type'}</div>
-        <div className="form-radio-group" style={{flexDirection:'column',marginBottom:'20px'}}>
-          {t.carTypes.map(ct => <div key={ct} className={`form-radio-option${form.carType===ct?' selected':''}`} onClick={() => update('carType')(ct)}>{ct}</div>)}
-        </div>
-        <div className="form-group"><label className="form-label">{t.amountLabel}</label><input className="form-input" placeholder={lang==='ar'?'مثال: 150,000':'e.g. 150,000'} value={form.amount} onChange={e=>update('amount')(e.target.value)} /></div>
-      </>)}
-      {step === 2 && (<>
-        <div className="form-group"><label className="form-label">{lang==='ar'?'الاسم الكامل':'Full Name'}</label><input className="form-input" value={form.name} onChange={e=>update('name')(e.target.value)} /></div>
-        <div className="form-group"><label className="form-label">{lang==='ar'?'رقم الجوال':'Phone Number'}</label><input className="form-input" type="tel" value={form.phone} onChange={e=>update('phone')(e.target.value)} /></div>
-      </>)}
-    </div>
-    <div className="modal-footer">
-      {step > 0 && <button className="btn-secondary" onClick={() => setStep(s=>s-1)}>{t.back}</button>}
-      {step < 2 && <button className="btn-primary" disabled={step===0?!form.clientType:!form.carType} onClick={() => setStep(s=>s+1)}>{t.next}</button>}
-      {step === 2 && <button className="btn-primary" disabled={!form.name||!form.phone} onClick={() => setDone(true)}>{t.submit}</button>}
-    </div>
-  </>);
-}
-
-// ─── TWEAK DEFAULTS ───────────────────────────────────────────
-const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
-  "primaryColor": "#1b3a52",
-  "accentColor": "#4a7fa0"
-}/*EDITMODE-END*/;
-
-// ─── HUBSPOT FORM CONFIG ───────────────────────────────────────
-// Replace these portal/form IDs with your real HubSpot IDs
-const HS_CONFIG = {
-  consulting: {
-    portalId: 'YOUR_PORTAL_ID',
-    formId: 'YOUR_CONSULTING_FORM_ID',
-    title: { ar: 'الاستشارات المالية', en: 'Financial Consulting' }
-  },
-  realestate: {
-    portalId: 'YOUR_PORTAL_ID',
-    formId: 'YOUR_REALESTATE_FORM_ID',
-    title: { ar: 'التمويل العقاري', en: 'Real Estate Financing' }
-  },
-  auto: {
-    portalId: 'YOUR_PORTAL_ID',
-    formId: 'YOUR_AUTO_FORM_ID',
-    title: { ar: 'تمويل السيارات', en: 'Auto Financing' }
+  // ─── CONTACT FORM ───────────────────────────────────────────────
+  function renderContactForm(lang) {
+    const container = document.getElementById('contact-form-area');
+    if (!container) return;
+    const t = {
+      ar: { name: 'الاسم الكامل', phone: 'رقم الجوال', email: 'البريد الإلكتروني', service: 'الخدمة المطلوبة', services: ['الاستشارات المالية','التمويل العقاري','تمويل السيارات','التسهيلات البنكية'], msg: 'رسالتك', send: 'إرسال الرسالة', success: 'تم الإرسال بنجاح!', successMsg: 'سنتواصل معك خلال ٢٤ ساعة.' },
+      en: { name: 'Full Name', phone: 'Phone Number', email: 'Email Address', service: 'Service Needed', services: ['Financial Consulting','Real Estate Financing','Auto Financing','Bank Facilities'], msg: 'Your Message', send: 'Send Message', success: 'Sent Successfully!', successMsg: "We'll contact you within 24 hours." }
+    }[lang];
+    container.innerHTML = '<form onsubmit="submitContact(event)">' +
+      '<div class="contact-form-row"><div class="form-group"><label class="form-label">' + t.name + '</label><input class="form-input" name="name" required /></div>' +
+      '<div class="form-group"><label class="form-label">' + t.phone + '</label><input class="form-input" type="tel" name="phone" required /></div></div>' +
+      '<div class="form-group"><label class="form-label">' + t.email + '</label><input class="form-input" type="email" name="email" /></div>' +
+      '<div class="form-group"><label class="form-label">' + t.service + '</label><select class="form-select" name="service"><option value=""></option>' +
+      t.services.map(function(s) { return '<option value="' + s + '">' + s + '</option>'; }).join('') + '</select></div>' +
+      '<div class="form-group"><label class="form-label">' + t.msg + '</label><textarea class="form-textarea" name="msg"></textarea></div>' +
+      '<button type="submit" class="btn-primary" style="width:100%;justify-content:center">' + t.send + '</button></form>';
   }
-};
+  window.submitContact = function(e) {
+    e.preventDefault();
+    var container = document.getElementById('contact-form-area');
+    var lang = isAR() ? 'ar' : 'en';
+    var t = { ar: { success: 'تم الإرسال بنجاح!', msg: 'سنتواصل معك خلال ٢٤ ساعة.' }, en: { success: 'Sent Successfully!', msg: "We'll contact you within 24 hours." } }[lang];
+    container.innerHTML = '<div class="form-success"><div class="success-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="success-title">' + t.success + '</div><div class="success-msg">' + t.msg + '</div></div>';
+  };
 
-// ─── MAIN APP ──────────────────────────────────────────────────
-function App() {
-  const [lang, setLang] = useState('ar');
-
-  const tweaksResult = useTweaks(TWEAK_DEFAULTS);
-  const tweaks = tweaksResult[0];
-  const setTweak = tweaksResult[1];
-
-  // Apply tweaks
-  useEffect(() => {
-    document.documentElement.style.setProperty('--navy', tweaks.primaryColor);
-    document.documentElement.style.setProperty('--navy-deep', tweaks.primaryColor);
-    document.documentElement.style.setProperty('--navy-mid', tweaks.accentColor);
-    document.documentElement.style.setProperty('--steel', tweaks.accentColor);
-  }, [tweaks.primaryColor, tweaks.accentColor]);
-
-  // Apply language
-  useEffect(() => {
-    const html = document.documentElement;
-    html.lang = lang;
-    html.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  // ─── LANGUAGE TOGGLE ─────────────────────────────────────────────
+  let currentLang = 'ar';
+  function setLang(lang) {
+    currentLang = lang;
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
     document.body.classList.toggle('en', lang === 'en');
-    document.getElementById('lang-toggle').textContent = lang === 'ar' ? 'EN' : 'عربي';
-    // Update all translatable elements
-    document.querySelectorAll('[data-ar]').forEach(el => {
+    var btn = document.getElementById('lang-toggle');
+    if (btn) btn.textContent = lang === 'ar' ? 'EN' : 'عربي';
+    document.querySelectorAll('[data-ar]').forEach(function(el) {
       el.textContent = lang === 'ar' ? el.getAttribute('data-ar') : el.getAttribute('data-en');
     });
-    document.querySelectorAll('.hero-service-arrow').forEach(el => {
+    document.querySelectorAll('.hero-service-arrow').forEach(function(el) {
       el.textContent = lang === 'ar' ? '←' : '→';
     });
-    // floating WA position
-    const fwa = document.getElementById('float-wa');
-    if (fwa) { fwa.style.left = lang === 'ar' ? '28px' : 'auto'; fwa.style.right = lang === 'ar' ? 'auto' : '28px'; }
-  }, [lang]);
-
-  // Mount FAQ & Contact Form into portals (single root each)
-  const faqRootRef = React.useRef(null);
-  const contactRootRef = React.useRef(null);
-
-  useEffect(() => {
-    const faqEl = document.getElementById('faq-list');
-    if (faqEl && !faqRootRef.current) {
-      faqRootRef.current = ReactDOM.createRoot(faqEl);
-    }
-    if (faqRootRef.current) faqRootRef.current.render(<FAQList lang={lang} />);
-  }, [lang]);
-
-  useEffect(() => {
-    const el = document.getElementById('contact-form-area');
-    if (el && !contactRootRef.current) {
-      contactRootRef.current = ReactDOM.createRoot(el);
-    }
-    if (contactRootRef.current) contactRootRef.current.render(<ContactForm lang={lang} />);
-  }, [lang]);
-
-  // Lang toggle handler
-  useEffect(() => {
-    const btn = document.getElementById('lang-toggle');
-    btn.onclick = () => setLang(l => l === 'ar' ? 'en' : 'ar');
-  }, []);
-
-  // Hero CTA
-  useEffect(() => {
-    const btn = document.getElementById('hero-cta-btn');
-    if (btn) btn.onclick = () => setModalType('consulting');
-  }, []);
-
-  return (<>
-    <TweaksPanel>
-      <TweakSection label="Brand Colors">
-        <TweakColor id="primaryColor" label="Primary" value={tweaks.primaryColor} options={['#1b3a52','#1a3a5c','#2c3e50','#1b4332']} onChange={v => setTweak('primaryColor', v)} />
-        <TweakColor id="accentColor" label="Accent" value={tweaks.accentColor} options={['#4a7fa0','#2e86c1','#5dade2','#2980b9']} onChange={v => setTweak('accentColor', v)} />
-      </TweakSection>
-    </TweaksPanel>
-  </>);
-}
-
-let __appRoot = null;
-function mountApp() {
-  if (typeof window.useTweaks === 'undefined') {
-    setTimeout(mountApp, 50);
-    return;
+    var fwa = document.getElementById('float-wa');
+    if (fwa) { fwa.style.left = lang === 'ar' ? '' : 'auto'; fwa.style.right = lang === 'ar' ? 'auto' : ''; }
+    renderFAQ(lang);
+    renderContactForm(lang);
   }
-  const el = document.getElementById('react-root');
-  if (!__appRoot) __appRoot = ReactDOM.createRoot(el);
-  __appRoot.render(<App />);
-}
-mountApp();
+  document.getElementById('lang-toggle').addEventListener('click', function() {
+    setLang(currentLang === 'ar' ? 'en' : 'ar');
+  });
+
+  // ─── HUBSPOT MODAL ──────────────────────────────────────────────
+  var HS_TITLES = {
+    consulting: { ar: 'طلب استشارة مالية — الاستشارات المالية والتسهيلات البنكية', en: 'Financial Consulting & Bank Facilities Request' },
+    realestate: { ar: 'طلب تمويل عقاري — سكني أو تجاري', en: 'Real Estate Financing Request — Residential or Commercial' },
+    auto:       { ar: 'طلب تمويل سيارة — أفراد وشركات', en: 'Auto Financing Request — Individuals & Companies' }
+  };
+  var HS_INSTRUCTIONS = {
+    consulting: { ar: 'استبدل هذا القسم بكود HubSpot الخاص بنموذج الاستشارات المالية', en: 'Replace this section with your HubSpot Financial Consulting form embed code' },
+    realestate: { ar: 'استبدل هذا القسم بكود HubSpot الخاص بنموذج التمويل العقاري', en: 'Replace this section with your HubSpot Real Estate Financing form embed code' },
+    auto: { ar: 'استبدل هذا القسم بكود HubSpot الخاص بنموذج تمويل السيارات', en: 'Replace this section with your HubSpot Auto Financing form embed code' }
+  };
+  var HS_EMBEDS = {
+    consulting: '<iframe src="https://2gd10h.share-eu1.hsforms.com/2GI6DctmDSU2afF4TtOYd6w" width="100%" height="640" frameborder="0" scrolling="auto" style="border:none;border-radius:12px;min-height:640px;" title="نموذج ملاءة"></iframe>',
+    realestate: '<iframe src="https://2gd10h.share-eu1.hsforms.com/2GI6DctmDSU2afF4TtOYd6w" width="100%" height="640" frameborder="0" scrolling="auto" style="border:none;border-radius:12px;min-height:640px;" title="نموذج ملاءة"></iframe>',
+    auto: '<iframe src="https://2gd10h.share-eu1.hsforms.com/2GI6DctmDSU2afF4TtOYd6w" width="100%" height="640" frameborder="0" scrolling="auto" style="border:none;border-radius:12px;min-height:640px;" title="نموذج ملاءة"></iframe>'
+  };
+  function getLang() { return document.documentElement.lang === 'ar' ? 'ar' : 'en'; }
+
+  window.openModal = function(type) {
+    var lang = getLang();
+    var overlay = document.getElementById('hs-modal-overlay');
+    var title   = document.getElementById('hs-modal-title');
+    var body    = document.getElementById('hs-modal-body');
+    title.textContent = HS_TITLES[type][lang];
+    var embedCode = HS_EMBEDS[type] || '';
+    var hasRealEmbed = embedCode.includes('hsforms.com') || embedCode.includes('hs-form-frame') || embedCode.includes('hbspt.forms');
+    if (hasRealEmbed) {
+      body.innerHTML = '<div id="hs-form-container-' + type + '" style="min-height:300px;padding:8px 0;"></div>';
+      var container = document.getElementById('hs-form-container-' + type);
+      var tmp = document.createElement('div');
+      tmp.innerHTML = embedCode;
+      tmp.querySelectorAll(':not(script)').forEach(function(el) { container.appendChild(el.cloneNode(true)); });
+      var scripts = Array.from(tmp.querySelectorAll('script'));
+      function loadScript(i) {
+        if (i >= scripts.length) return;
+        var s = scripts[i];
+        var ns = document.createElement('script');
+        if (s.src) { ns.src = s.src; ns.onload = function() { loadScript(i + 1); }; ns.onerror = function() { loadScript(i + 1); }; }
+        else { ns.textContent = s.textContent; loadScript(i + 1); }
+        document.head.appendChild(ns);
+      }
+      loadScript(0);
+    } else {
+      body.innerHTML = '<div style="text-align:center;padding:8px 0 16px;"><div style="background:var(--off-white);border:1.5px dashed var(--border);border-radius:14px;padding:36px 24px;"><div style="width:56px;height:56px;background:var(--steel-pale);border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--navy-mid)" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 8h10M7 12h6M7 16h4"/></svg></div><div style="font-size:16px;font-weight:700;color:var(--navy);margin-bottom:10px;">' + (lang==='ar'?'نموذج HubSpot':'HubSpot Form') + '</div><div style="font-size:13px;color:var(--text-muted);line-height:1.7;max-width:380px;margin:0 auto 20px;">' + HS_INSTRUCTIONS[type][lang] + '</div></div></div>';
+    }
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+  window.switchHsTab = function(type) {
+    document.getElementById('hs-modal-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+    setTimeout(function() { openModal(type); }, 50);
+  };
+  document.getElementById('hs-modal-close').onclick = function() {
+    document.getElementById('hs-modal-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+  };
+  document.getElementById('hs-modal-overlay').addEventListener('click', function(e) {
+    if (e.target === document.getElementById('hs-modal-overlay')) {
+      document.getElementById('hs-modal-overlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  });
+
+  // ─── HERO CTA ───────────────────────────────────────────────────
+  var heroCta = document.getElementById('hero-cta-btn');
+  if (heroCta) heroCta.onclick = function() { openModal('consulting'); };
+
+  // ─── INITIAL RENDER ──────────────────────────────────────────────
+  renderFAQ('ar');
+  renderContactForm('ar');
+})();
 </script>
-
-<div id="react-root"></div>
-
 <script>
 // Navbar scroll effect
 window.addEventListener('scroll', () => {
