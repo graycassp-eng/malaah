@@ -801,7 +801,6 @@
   .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; background: none; border: none; }
   .hamburger span { display: block; width: 22px; height: 2px; background: var(--navy); border-radius: 1px; transition: all 0.2s; }
   .mobile-menu {
-    display: none;
     position: fixed;
     inset: 0;
     background: white;
@@ -810,10 +809,13 @@
     align-items: center;
     justify-content: center;
     gap: 32px;
+    display: flex;
+    visibility: hidden;
     opacity: 0;
-    transition: opacity 0.25s ease;
+    pointer-events: none;
+    transition: opacity 0.25s ease, visibility 0s 0.25s;
   }
-  .mobile-menu.open { display: flex; opacity: 1; }
+  .mobile-menu.open { visibility: visible; opacity: 1; pointer-events: all; transition: opacity 0.25s ease, visibility 0s; }
   .mobile-menu a { font-size: 20px; color: var(--navy); text-decoration: none; font-weight: 600; padding: 8px 16px; border-radius: 8px; transition: background 0.2s; }
   .mobile-menu a:hover { background: var(--steel-pale); }
   .mobile-menu-close { position: absolute; top: 20px; left: 24px; font-size: 24px; cursor: pointer; color: var(--navy); background: none; border: none; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 8px; }
@@ -1461,11 +1463,21 @@
   </div>
 </div>
 
-<script src="tweaks-panel.jsx" type="text/babel"></script>
+<!-- tweaks-panel.jsx removed — built-in defaults only -->
 
 <script type="text/babel">
 const { useState, useEffect } = React;
 const isAR = () => document.documentElement.lang === 'ar';
+
+// ─── TWEAKS STUB (replaces external tweaks-panel.jsx) ──────────
+window.useTweaks = function(defaults) {
+  const [vals, setVals] = React.useState(defaults);
+  const set = (k, v) => setVals(prev => ({...prev, [k]: v}));
+  return [vals, set];
+};
+window.TweaksPanel = function({children}) { return children; };
+window.TweakSection = function({label, children}) { return children; };
+window.TweakColor = function({id, label, value, options, onChange}) { return null; };
 
 // ─── FAQ DATA ───────────────────────────────────────────────
 const faqData = [
