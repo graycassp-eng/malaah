@@ -1753,7 +1753,7 @@ function openModal(type) {
 
   let formHtml = '<form onsubmit="submitNocoForm(event,\'' + type + '\')" style="padding:8px 0;">';
 
-  // Applicant type (mortgage & auto)
+  // Applicant type (mortgage & auto) — radio buttons
   if (type === 'realestate' || type === 'auto') {
     formHtml += '<div class="form-group"><label class="form-label">' + t.applicantType + ' *</label>';
     formHtml += '<div style="display:flex;gap:10px;margin-top:6px;">';
@@ -1762,24 +1762,41 @@ function openModal(type) {
     formHtml += '</div></div>';
   }
 
-  // Service type (mortgage only)
+  // Service type (mortgage only) — multiple select dropdown
   if (type === 'realestate') {
-    formHtml += '<div class="form-group"><label class="form-label">' + t.serviceType + ' *</label><select class="form-select" name="service_type" required><option value=""></option>';
+    formHtml += '<div class="form-group"><label class="form-label">' + (lang==='ar' ? 'ما هي الخدمة العقارية التي تحتاجها ؟ *' : 'Which real estate service do you need? *') + '</label>';
+    formHtml += '<select class="form-select" name="service_type" required multiple style="min-height:120px;">';
     SERVICE_OPTIONS[lang].forEach(s => { formHtml += '<option value="' + s + '">' + s + '</option>'; });
-    formHtml += '</select></div>';
+    formHtml += '</select>';
+    formHtml += '<div style="font-size:11px;color:var(--text-muted);margin-top:4px;">' + (lang==='ar' ? 'يمكنك اختيار أكثر من خيار (Ctrl+Click)' : 'Select multiple (Ctrl+Click)') + '</div>';
+    formHtml += '</div>';
   }
 
-  // Company name (optional, shown if company)
+  // Company name (optional)
   formHtml += '<div class="form-group"><label class="form-label">' + t.companyName + '</label><input class="form-input" name="company_name" type="text" /></div>';
 
   // Contact name
   formHtml += '<div class="form-group"><label class="form-label">' + t.contactName + ' *</label><input class="form-input" name="contact_name" type="text" required /></div>';
 
-  // Email
-  formHtml += '<div class="form-group"><label class="form-label">' + t.email + ' *</label><input class="form-input" name="email" type="email" required /></div>';
-
-  // Phone
+  // Phone (required for all)
   formHtml += '<div class="form-group"><label class="form-label">' + t.phone + ' *</label><input class="form-input" name="phone" type="tel" required placeholder="05xxxxxxxx" /></div>';
+
+  // Email (required for auto & consulting, optional for mortgage)
+  if (type === 'realestate') {
+    formHtml += '<div class="form-group"><label class="form-label">' + t.email + '</label><input class="form-input" name="email" type="email" /></div>';
+  } else {
+    formHtml += '<div class="form-group"><label class="form-label">' + t.email + ' *</label><input class="form-input" name="email" type="email" required /></div>';
+  }
+
+  // Salary/income (mortgage & auto)
+  if (type === 'realestate' || type === 'auto') {
+    formHtml += '<div class="form-group"><label class="form-label">' + (lang==='ar' ? 'الراتب / الإيراد' : 'Salary / Income') + '</label><input class="form-input" name="salary_income" type="text" /></div>';
+  }
+
+  // Company name 2 (auto form has extra fields)
+  if (type === 'auto') {
+    formHtml += '<div class="form-group"><label class="form-label">' + (lang==='ar' ? 'اسم جهة العمل' : 'Employer Name') + '</label><input class="form-input" name="employer_name" type="text" /></div>';
+  }
 
   // Consultation type (consulting only)
   if (type === 'consulting') {
@@ -1811,7 +1828,14 @@ window.submitNocoForm = async function(e, type) {
 
   const formData = new FormData(form);
   const data = {};
-  formData.forEach((v, k) => { data[k] = v; });
+  formData.forEach((v, k) => {
+    if (data[k]) {
+      // Multiple values (e.g., multiple select) — join with comma
+      data[k] = data[k] + ', ' + v;
+    } else {
+      data[k] = v;
+    }
+  });
 
   try {
     const res = await fetch(NOCODB_API + '/' + TABLE_IDS[type] + '/records', {
