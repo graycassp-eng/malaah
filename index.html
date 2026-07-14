@@ -1161,7 +1161,7 @@
         <span data-ar="حلول تمويلية" data-en="Smart Financial">حلول تمويلية</span><br/>
         <span style="color: var(--steel);" data-ar="ذكية وموثوقة" data-en="Solutions You Trust">ذكية وموثوقة</span>
       </h1>
-      <p class="hero-subtitle" data-ar="نقدم للأفراد والشركات استشارات مالية متكاملة في التمويل العقاري، تمويل السيارات، والتسهيلات البنكية — بكفاءة واحترافية سعودية." data-en="We provide individuals and businesses with comprehensive financial consulting in real estate financing, auto loans, and bank facilities — with Saudi expertise and professionalism.">نقدم للأفراد والشركات استشارات مالية متكاملة في التمويل العقاري، تمويل السيارات، والتسهيلات البنكية — بكفاءة واحترافية سعودية.</p>
+      <p class="hero-subtitle" data-ar="نقدم للأفراد والشركات استشارات مالية متكاملة في التسهيلات البنكية وتمويل الشركات والتمويل العقاري وتمويل السيارات — بكفاءة واحترافية سعودية." data-en="We provide individuals and businesses with comprehensive financial consulting in bank facilities, business financing, real estate financing, and auto financing — with Saudi expertise and professionalism.">نقدم للأفراد والشركات استشارات مالية متكاملة في التسهيلات البنكية وتمويل الشركات والتمويل العقاري وتمويل السيارات — بكفاءة واحترافية سعودية.</p>
       <div class="hero-actions">
         <button class="btn-primary" id="hero-cta-btn" data-ar="احصل على استشارة" data-en="Free Consultation">احصل على استشارة</button>
         <a href="#services" class="btn-secondary" data-ar="اكتشف خدماتنا" data-en="Our Services →">اكتشف خدماتنا ←</a>
@@ -1260,8 +1260,16 @@
       </div>
       <div class="finance-arrow">←</div>
     </div>
-    <div class="finance-card featured" onclick="openModal('realestate')">
+    <div class="finance-card" onclick="openModal('business')">
       <div class="finance-num">02</div>
+      <div class="finance-content">
+        <h3>تمويل الشركات والمؤسسات الصغيرة ورجال الأعمال</h3>
+        <p>حلول تمويلية للشركات الناشئة والمؤسسات الصغيرة ورجال الأعمال</p>
+      </div>
+      <div class="finance-arrow">←</div>
+    </div>
+    <div class="finance-card featured" onclick="openModal('realestate')">
+      <div class="finance-num">03</div>
       <div class="finance-content">
         <h3>التمويل العقاري</h3>
         <p>سكني وتجاري للأفراد والشركات</p>
@@ -1269,7 +1277,7 @@
       <div class="finance-arrow">←</div>
     </div>
     <div class="finance-card" onclick="openModal('auto')">
-      <div class="finance-num">03</div>
+      <div class="finance-num">04</div>
       <div class="finance-content">
         <h3>تمويل السيارات</h3>
         <p>حلول سريعة للأفراد والمؤسسات</p>
@@ -1332,7 +1340,15 @@
         <p class="service-desc" data-ar="نقدم استشارات متخصصة في التسهيلات البنكية والتسويات المالية للشركات والمؤسسات، مع حلول ذكية وفعالة تضمن لك أفضل النتائج." data-en="We provide specialized consulting on bank facilities and financial settlements for companies and institutions, with smart and effective solutions ensuring the best outcomes.">نقدم استشارات متخصصة في التسهيلات البنكية والتسويات المالية للشركات والمؤسسات، مع حلول ذكية وفعالة تضمن لك أفضل النتائج.</p>
         <span class="service-link" data-ar="اطلب استشارة ←" data-en="Request Consultation →">اطلب استشارة ←</span>
       </div>
-      <div class="service-card featured reveal" style="transition-delay:0.1s" onclick="openModal('realestate')">
+      <div class="service-card reveal" style="transition-delay:0.1s" onclick="openModal('business')">
+        <div class="service-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 9h1M14 9h1M9 13h1M14 13h1M9 17h1M14 17h1"/></svg>
+        </div>
+        <h3 class="service-title" data-ar="تمويل الشركات والمؤسسات الصغيرة ورجال الأعمال" data-en="Business & SME Financing">تمويل الشركات والمؤسسات الصغيرة ورجال الأعمال</h3>
+        <p class="service-desc" data-ar="نقدم حلولاً تمويلية مرنة للشركات الناشئة والمؤسسات الصغيرة ورجال الأعمال، تشمل تمويل رأس المال العامل والتوسع التجاري بإجراءات ميسّرة." data-en="We offer flexible financing solutions for startups, small institutions, and business owners, including working capital and business expansion financing with streamlined procedures.">نقدم حلولاً تمويلية مرنة للشركات الناشئة والمؤسسات الصغيرة ورجال الأعمال، تشمل تمويل رأس المال العامل والتوسع التجاري بإجراءات ميسّرة.</p>
+        <span class="service-link" data-ar="اطلب تمويل ←" data-en="Request Financing →">اطلب تمويل ←</span>
+      </div>
+      <div class="service-card featured reveal" style="transition-delay:0.2s" onclick="openModal('realestate')">
         <div class="service-icon-wrap">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
         </div>
@@ -1340,7 +1356,7 @@
         <p class="service-desc" data-ar="حلول تمويلية عقارية متكاملة للأفراد والشركات — سكنية وتجارية. نرافقك في كل خطوة للحصول على أفضل معدلات التمويل من البنوك الشريكة." data-en="Comprehensive real estate financing solutions for individuals and companies — residential and commercial. We guide you every step to secure the best rates from partner banks.">حلول تمويلية عقارية متكاملة للأفراد والشركات — سكنية وتجارية. نرافقك في كل خطوة للحصول على أفضل معدلات التمويل من البنوك الشريكة.</p>
         <span class="service-link" data-ar="احصل على تمويل عقاري ←" data-en="Get Real Estate Financing →">احصل على تمويل عقاري ←</span>
       </div>
-      <div class="service-card reveal" style="transition-delay:0.2s" onclick="openModal('auto')">
+      <div class="service-card reveal" style="transition-delay:0.3s" onclick="openModal('auto')">
         <div class="service-icon-wrap">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M19 17H5a2 2 0 01-2-2V7a2 2 0 012-2h14"/><path d="M16 17l2-5H5l2 5"/><circle cx="7.5" cy="17.5" r="1.5"/><circle cx="16.5" cy="17.5" r="1.5"/></svg>
         </div>
@@ -1480,6 +1496,7 @@
         <div class="footer-col-title" data-ar="خدماتنا" data-en="Services">خدماتنا</div>
         <ul class="footer-links">
           <li><a href="#" data-ar="الاستشارات المالية" data-en="Financial Consulting">الاستشارات المالية</a></li>
+          <li><a href="#" data-ar="تمويل الشركات والمؤسسات الصغيرة ورجال الأعمال" data-en="Business & SME Financing">تمويل الشركات والمؤسسات الصغيرة ورجال الأعمال</a></li>
           <li><a href="#" data-ar="التمويل العقاري" data-en="Real Estate Financing">التمويل العقاري</a></li>
           <li><a href="#" data-ar="تمويل السيارات" data-en="Auto Financing">تمويل السيارات</a></li>
           <li><a href="#" data-ar="التسهيلات البنكية" data-en="Bank Facilities">التسهيلات البنكية</a></li>
@@ -1523,11 +1540,11 @@
   // ─── FAQ DATA ───────────────────────────────────────────────────
   const faqData = [
     { q: { ar: 'ما هي الخدمات التي تقدمها ملاءة؟', en: 'What services does Malaah provide?' }, a: { ar: 'تقدم ملاءة خدمات الاستشارات المالية، التمويل العقاري (سكني وتجاري)، تمويل السيارات للأفراد والشركات، والتسهيلات البنكية والتسويات المالية.', en: 'Malaah provides financial consulting, real estate financing (residential and commercial), auto financing for individuals and companies, bank facilities, and financial settlements.' } },
-    { q: { ar: 'كم يستغرق الحصول على موافقة التمويل؟', en: 'How long does financing approval take?' }, a: { ar: 'تتفاوت المدة حسب نوع التمويل والبنك المختار، لكن فريقنا يعمل على تسريع الإجراءات للحصول على رد في أقصر وقت ممكن، وغالباً خلال ٣-٧ أيام عمل.', en: 'The duration varies depending on the type of financing and chosen bank, but our team works to expedite procedures to get a response in the shortest possible time, usually within 3-7 business days.' } },
+    { q: { ar: 'كم يستغرق الحصول على موافقة التمويل؟', en: 'How long does financing approval take?' }, a: { ar: 'تتفاوت المدة حسب نوع التمويل والبنك المختار، فريقنا يعمل على تسريع الإجراءات للحصول على رد في أقصر وقت ممكن، وغالباً خلال ٣-٧ أيام عمل.', en: 'The duration varies depending on the type of financing and chosen bank. Our team works to expedite procedures to get a response in the shortest possible time, usually within 3-7 business days.' } },
     { q: { ar: 'هل خدماتكم متاحة للأفراد والشركات؟', en: 'Are your services available to individuals and companies?' }, a: { ar: 'نعم، نخدم الأفراد والشركات والمؤسسات على حدٍّ سواء. لدينا حلول مخصصة لكل فئة تناسب متطلباتها واحتياجاتها الخاصة.', en: 'Yes, we serve individuals, companies, and institutions alike. We have customized solutions for each category that suit their specific requirements and needs.' } },
     { q: { ar: 'ما هي البنوك التي تتعاملون معها؟', en: 'Which banks do you work with?' }, a: { ar: 'نعمل مع شبكة واسعة تضم أكثر من ٢٠ بنكاً ومؤسسة تمويلية معتمدة في المملكة العربية السعودية، مما يضمن لك الحصول على أفضل الخيارات المتاحة.', en: 'We work with a wide network of over 20 accredited banks and financing institutions in Saudi Arabia, ensuring you get the best available options.' } },
     { q: { ar: 'هل الاستشارة الأولى مجانية؟', en: 'Is the initial consultation free?' }, a: { ar: 'نعم، الاستشارة الأولى مجانية تماماً. فريقنا سيتواصل معك لفهم احتياجاتك وتقديم أفضل الحلول الممكنة دون أي التزام مسبق.', en: 'Yes, the initial consultation is completely free. Our team will contact you to understand your needs and provide the best possible solutions without any prior commitment.' } },
-    { q: { ar: 'ما هي المستندات المطلوبة للتمويل العقاري؟', en: 'What documents are required for real estate financing?' }, a: { ar: 'تشمل المستندات الأساسية: الهوية الوطنية، كشف الراتب أو الإيرادات، كشف حساب بنكي (٦ أشهر)، وثيقة العقار. سيوضح لك مستشارونا القائمة الكاملة حسب حالتك.', en: 'Basic documents include: national ID, salary or income statement, bank account statement (6 months), property document. Our consultants will clarify the full list according to your case.' } }
+    { q: { ar: 'ما هي المستندات المطلوبة للتمويل العقاري؟', en: 'What documents are required for real estate financing?' }, a: { ar: 'تشمل المستندات الأساسية: الهوية الوطنية، كشف الراتب أو الإيرادات، كشف حساب بنكي (٦ أشهر)، وثيقة العقار. سيوضح لك المستشار القائمة المطلوبة حسب حالة الطلب.', en: 'Basic documents include: national ID, salary or income statement, bank account statement (6 months), property document. The consultant will clarify the required list based on your request.' } }
   ];
 
   // ─── FAQ RENDER ─────────────────────────────────────────────────
@@ -1562,8 +1579,8 @@
     const container = document.getElementById('contact-form-area');
     if (!container) return;
     const t = {
-      ar: { name: 'الاسم الكامل', phone: 'رقم الجوال', email: 'البريد الإلكتروني', service: 'الخدمة المطلوبة', services: ['الاستشارات المالية','التمويل العقاري','تمويل السيارات','التسهيلات البنكية'], msg: 'رسالتك', send: 'إرسال الرسالة', success: 'تم الإرسال بنجاح!', successMsg: 'سنتواصل معك خلال ٢٤ ساعة.' },
-      en: { name: 'Full Name', phone: 'Phone Number', email: 'Email Address', service: 'Service Needed', services: ['Financial Consulting','Real Estate Financing','Auto Financing','Bank Facilities'], msg: 'Your Message', send: 'Send Message', success: 'Sent Successfully!', successMsg: "We'll contact you within 24 hours." }
+      ar: { name: 'الاسم الكامل', phone: 'رقم الجوال', email: 'البريد الإلكتروني', service: 'الخدمة المطلوبة', services: ['الاستشارات المالية','تمويل الشركات والمؤسسات الصغيرة ورجال الأعمال','التمويل العقاري','تمويل السيارات','التسهيلات البنكية'], msg: 'رسالتك', send: 'إرسال الرسالة', success: 'تم الإرسال بنجاح!', successMsg: 'سنتواصل معك خلال ٢٤ ساعة.' },
+      en: { name: 'Full Name', phone: 'Phone Number', email: 'Email Address', service: 'Service Needed', services: ['Financial Consulting','Business & SME Financing','Real Estate Financing','Auto Financing','Bank Facilities'], msg: 'Your Message', send: 'Send Message', success: 'Sent Successfully!', successMsg: "We'll contact you within 24 hours." }
     }[lang];
     container.innerHTML = '<form onsubmit="submitContact(event)">' +
       '<div class="contact-form-row"><div class="form-group"><label class="form-label">' + t.name + '</label><input class="form-input" name="name" required /></div>' +
@@ -1631,16 +1648,19 @@
   // ─── HUBSPOT MODAL ──────────────────────────────────────────────
   var HS_TITLES = {
     consulting: { ar: 'طلب استشارة مالية — الاستشارات المالية والتسهيلات البنكية', en: 'Financial Consulting & Bank Facilities Request' },
+    business:   { ar: 'طلب تمويل شركات ومؤسسات صغيرة — أفراد ورجال أعمال', en: 'Business & SME Financing Request' },
     realestate: { ar: 'طلب تمويل عقاري — سكني أو تجاري', en: 'Real Estate Financing Request — Residential or Commercial' },
     auto:       { ar: 'طلب تمويل سيارة — أفراد وشركات', en: 'Auto Financing Request — Individuals & Companies' }
   };
   var HS_INSTRUCTIONS = {
     consulting: { ar: 'استبدل هذا القسم بكود HubSpot الخاص بنموذج الاستشارات المالية', en: 'Replace this section with your HubSpot Financial Consulting form embed code' },
+    business: { ar: 'استبدل هذا القسم بكود HubSpot الخاص بنموذج تمويل الشركات والمؤسسات الصغيرة', en: 'Replace this section with your HubSpot Business & SME Financing form embed code' },
     realestate: { ar: 'استبدل هذا القسم بكود HubSpot الخاص بنموذج التمويل العقاري', en: 'Replace this section with your HubSpot Real Estate Financing form embed code' },
     auto: { ar: 'استبدل هذا القسم بكود HubSpot الخاص بنموذج تمويل السيارات', en: 'Replace this section with your HubSpot Auto Financing form embed code' }
   };
   var HS_EMBEDS = {
     consulting: '<iframe src="https://2gd10h.share-eu1.hsforms.com/2GI6DctmDSU2afF4TtOYd6w" width="100%" height="640" frameborder="0" scrolling="auto" style="border:none;border-radius:12px;min-height:640px;" title="نموذج ملاءة"></iframe>',
+    business: '<iframe src="https://2gd10h.share-eu1.hsforms.com/2GI6DctmDSU2afF4TtOYd6w" width="100%" height="640" frameborder="0" scrolling="auto" style="border:none;border-radius:12px;min-height:640px;" title="نموذج ملاءة"></iframe>',
     realestate: '<iframe src="https://2gd10h.share-eu1.hsforms.com/2GI6DctmDSU2afF4TtOYd6w" width="100%" height="640" frameborder="0" scrolling="auto" style="border:none;border-radius:12px;min-height:640px;" title="نموذج ملاءة"></iframe>',
     auto: '<iframe src="https://2gd10h.share-eu1.hsforms.com/2GI6DctmDSU2afF4TtOYd6w" width="100%" height="640" frameborder="0" scrolling="auto" style="border:none;border-radius:12px;min-height:640px;" title="نموذج ملاءة"></iframe>'
   };
@@ -1724,6 +1744,10 @@ const NOCODB_API = 'https://forms.malaah.com.sa/api/v2/tables';
 const NOCODB_TOKEN = 'nd_bc26923456f059fea10785f5f415e9dfc3377fdaf6ed57c6';
 const TABLE_IDS = {
   consulting: 'murl6yxjxux6cbf',
+  // TEMP: no dedicated NocoDB table yet for business/SME financing —
+  // routed to the consulting table until one is created, so the form
+  // doesn't fail. Replace with a real table ID once available.
+  business: 'murl6yxjxux6cbf',
   realestate: 'mpocfkyell24j9i',
   auto: 'm3fhryb11lkxw8v'
 };
