@@ -6,14 +6,14 @@
 <meta name="theme-color" content="#1b3a52" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-<meta name="description" content="شركة ملاءة للاستشارات المالية — استشارات مالية، تمويل عقاري، تمويل سيارات، وتسهيلات بنكية للأفراد والشركات في السعودية. استشارة مجانية!" />
+<meta name="description" content="شركة ملاءة للاستشارات المالية، استشارات مالية، تمويل عقاري، تمويل سيارات، وتسهيلات بنكية للأفراد والشركات في السعودية. استشارة مجانية!" />
 <meta name="keywords" content="استشارات مالية, تمويل عقاري, تمويل سيارات, تسهيلات بنكية, ملاءة, السعودية, الرياض" />
 <link rel="canonical" href="https://malaah.com.sa/" />
 
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
 <meta property="og:title" content="شركة ملاءة للاستشارات المالية | Malaah Financial Consulting" />
-<meta property="og:description" content="استشارات مالية متكاملة — تمويل عقاري، سيارات، وتسهيلات بنكية في السعودية" />
+<meta property="og:description" content="استشارات مالية متكاملة، تمويل عقاري، سيارات، وتسهيلات بنكية في السعودية" />
 <meta property="og:url" content="https://malaah.com.sa/" />
 <meta property="og:site_name" content="ملاءة" />
 <meta property="og:locale" content="ar_SA" />
@@ -22,7 +22,7 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="شركة ملاءة للاستشارات المالية | Malaah" />
-<meta name="twitter:description" content="استشارات مالية متكاملة — تمويل عقاري، سيارات، وتسهيلات بنكية في السعودية" />
+<meta name="twitter:description" content="استشارات مالية متكاملة، تمويل عقاري، سيارات، وتسهيلات بنكية في السعودية" />
 
 <!-- JSON-LD Structured Data -->
 <script type="application/ld+json">
@@ -213,13 +213,14 @@
   }
   .hero-badge-dot { width: 6px; height: 6px; background: var(--steel); border-radius: 50%; }
   .hero-title {
-    font-size: clamp(32px, 4vw, 54px);
+    font-size: clamp(28px, 3.5vw, 48px);
     font-weight: 700;
     line-height: 1.2;
     color: var(--navy-deep);
     letter-spacing: -0.01em;
   }
   .hero-title span { color: var(--steel); }
+  .hero-title-line { white-space: nowrap; }
   .hero-subtitle {
     font-size: 17px;
     line-height: 1.8;
@@ -387,12 +388,14 @@
   .hero-floating-label { font-size: 11px; color: rgba(255,255,255,0.65); margin-top: 2px; }
   .hero-geo-pattern {
     position: absolute;
-    top: -20px;
-    right: -20px;
-    opacity: 0.08;
+    top: -60px;
+    right: -60px;
+    opacity: 0.25;
     z-index: 1;
+    transform: scale(3.5);
+    transform-origin: top right;
   }
-  [dir="ltr"] .hero-geo-pattern { right: auto; left: -20px; }
+  [dir="ltr"] .hero-geo-pattern { right: auto; left: -60px; transform: scale(3.5); transform-origin: top left; }
 
   /* SECTION COMMON */
   section { padding: 90px 32px; }
@@ -1158,10 +1161,9 @@
         <span data-ar="شركة ملاءة للاستشارات المالية" data-en="Malaah Financial Consulting Co.">شركة ملاءة للاستشارات المالية</span>
       </div>
       <h1 class="hero-title">
-        <span data-ar="حلول تمويلية" data-en="Smart Financial">حلول تمويلية</span><br/>
-        <span style="color: var(--steel);" data-ar="ذكية وموثوقة" data-en="Solutions You Trust">ذكية وموثوقة</span>
+        <span class="hero-title-line" data-ar="حلول تمويلية ذكية وموثوقة" data-en="Smart Financial Solutions You Trust">حلول تمويلية ذكية وموثوقة</span>
       </h1>
-      <p class="hero-subtitle" data-ar="نقدم للأفراد والشركات استشارات مالية متكاملة في التمويل العقاري، تمويل السيارات، والتسهيلات البنكية — بكفاءة واحترافية سعودية." data-en="We provide individuals and businesses with comprehensive financial consulting in real estate financing, auto loans, and bank facilities — with Saudi expertise and professionalism.">نقدم للأفراد والشركات استشارات مالية متكاملة في التمويل العقاري، تمويل السيارات، والتسهيلات البنكية — بكفاءة واحترافية سعودية.</p>
+      <p class="hero-subtitle" data-ar="نقدم للأفراد والشركات استشارات مالية متكاملة في التمويل العقاري، تمويل السيارات، والتسهيلات البنكية، بكفاءة واحترافية سعودية." data-en="We provide individuals and businesses with comprehensive financial consulting in real estate financing, auto loans, and bank facilities, with Saudi expertise and professionalism.">نقدم للأفراد والشركات استشارات مالية متكاملة في التمويل العقاري، تمويل السيارات، والتسهيلات البنكية، بكفاءة واحترافية سعودية.</p>
       <div class="hero-actions">
         <button class="btn-primary" id="hero-cta-btn" data-ar="احصل على استشارة" data-en="Free Consultation">احصل على استشارة</button>
         <a href="#services" class="btn-secondary" data-ar="اكتشف خدماتنا" data-en="Our Services →">اكتشف خدماتنا ←</a>
@@ -1337,7 +1339,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
         </div>
         <h3 class="service-title" data-ar="التمويل العقاري" data-en="Real Estate Financing">التمويل العقاري</h3>
-        <p class="service-desc" data-ar="حلول تمويلية عقارية متكاملة للأفراد والشركات — سكنية وتجارية. نرافقك في كل خطوة للحصول على أفضل معدلات التمويل من البنوك الشريكة." data-en="Comprehensive real estate financing solutions for individuals and companies — residential and commercial. We guide you every step to secure the best rates from partner banks.">حلول تمويلية عقارية متكاملة للأفراد والشركات — سكنية وتجارية. نرافقك في كل خطوة للحصول على أفضل معدلات التمويل من البنوك الشريكة.</p>
+        <p class="service-desc" data-ar="حلول تمويلية عقارية متكاملة للأفراد والشركات، سكنية وتجارية. نرافقك في كل خطوة للحصول على أفضل معدلات التمويل من البنوك الشريكة." data-en="Comprehensive real estate financing solutions for individuals and companies, residential and commercial. We guide you every step to secure the best rates from partner banks.">حلول تمويلية عقارية متكاملة للأفراد والشركات، سكنية وتجارية. نرافقك في كل خطوة للحصول على أفضل معدلات التمويل من البنوك الشريكة.</p>
         <span class="service-link" data-ar="احصل على تمويل عقاري ←" data-en="Get Real Estate Financing →">احصل على تمويل عقاري ←</span>
       </div>
       <div class="service-card reveal" style="transition-delay:0.2s" onclick="openModal('auto')">
@@ -1464,7 +1466,7 @@
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <p data-ar="شركة ملاءة للاستشارات المالية لغير الأوراق المالية _ نقدم حلولاً تمويلية متكاملة للأفراد والشركات في المملكة العربية السعودية." data-en="Malaah Financial Consulting Co. for non-securities — providing comprehensive financing solutions for individuals and businesses in Saudi Arabia.">شركة ملاءة للاستشارات المالية لغير الأوراق المالية _ نقدم حلولاً تمويلية متكاملة للأفراد والشركات في المملكة العربية السعودية.</p>
+        <p data-ar="شركة ملاءة للاستشارات المالية لغير الأوراق المالية، نقدم حلولاً تمويلية متكاملة للأفراد والشركات في المملكة العربية السعودية." data-en="Malaah Financial Consulting Co. for non-securities, providing comprehensive financing solutions for individuals and businesses in Saudi Arabia.">شركة ملاءة للاستشارات المالية لغير الأوراق المالية، نقدم حلولاً تمويلية متكاملة للأفراد والشركات في المملكة العربية السعودية.</p>
       </div>
       <div>
         <div class="footer-col-title" data-ar="روابط سريعة" data-en="Quick Links">روابط سريعة</div>
