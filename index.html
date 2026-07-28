@@ -399,7 +399,7 @@
   .hero-geo-bg {
     position: absolute;
     top: 0;
-    left: 50%;
+    right: 50%;
     width: 50%;
     height: 100%;
     opacity: 0.12;
@@ -407,6 +407,7 @@
     pointer-events: none;
     overflow: hidden;
   }
+  [dir="ltr"] .hero-geo-bg { right: auto; left: 50%; }
   .hero-geo-bg img {
     width: 100%;
     height: 100%;
