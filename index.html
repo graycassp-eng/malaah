@@ -1877,12 +1877,8 @@ function openModal(type) {
     formHtml += '<div class="form-group"><label class="form-label">' + t.consultationType + ' *</label><input class="form-input" name="consultation_type" type="text" required /></div>';
   }
 
-  // Notes (required for business form)
-  if (type === 'business') {
-    formHtml += '<div class="form-group"><label class="form-label">' + t.notes + ' *</label><textarea class="form-textarea" name="notes" required></textarea></div>';
-  } else {
-    formHtml += '<div class="form-group"><label class="form-label">' + t.notes + '</label><textarea class="form-textarea" name="notes"></textarea></div>';
-  }
+  // Notes
+  formHtml += '<div class="form-group"><label class="form-label">' + t.notes + '</label><textarea class="form-textarea" name="notes"></textarea></div>';
 
   // Submit
   formHtml += '<button type="submit" class="btn-primary" style="width:100%;justify-content:center;margin-top:8px;" id="noco-submit-btn">' + t.submit + '</button>';
