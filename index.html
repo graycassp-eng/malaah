@@ -1748,6 +1748,7 @@ function closeMobileMenu() { document.getElementById('mobile-menu').classList.re
 // ─── HUBSPOT MODAL SYSTEM ─────────────────────────────────────
 const HS_TITLES = {
   consulting: { ar: 'طلب استشارة مالية — الاستشارات المالية والتسهيلات البنكية', en: 'Financial Consulting & Bank Facilities Request' },
+  business:   { ar: 'طلب تمويل شركات ومؤسسات صغيرة — أفراد ورجال أعمال', en: 'Business & SME Financing Request' },
   realestate: { ar: 'طلب تمويل عقاري — سكني أو تجاري', en: 'Real Estate Financing Request — Residential or Commercial' },
   auto:       { ar: 'طلب تمويل سيارة — أفراد وشركات', en: 'Auto Financing Request — Individuals & Companies' }
 };
@@ -1770,13 +1771,23 @@ function getLang() {
 }
 
 const FORM_LABELS = {
-  ar: { applicantType: 'نوع مقدم الطلب', individual: 'فرد', company: 'شركة/مؤسسة', serviceType: 'نوع الخدمة', companyName: 'اسم الشركة', contactName: 'اسم التواصل', email: 'البريد الإلكتروني', phone: 'رقم التواصل', consultationType: 'نوع الاستشارة', notes: 'ملاحظات إضافية', submit: 'إرسال الطلب', sending: 'جاري الإرسال...', success: 'تم إرسال طلبك بنجاح!', successMsg: 'سنتواصل معك خلال ٢٤ ساعة.', error: 'حدث خطأ، يرجى المحاولة مرة أخرى', required: 'هذا الحقل مطلوب' },
-  en: { applicantType: 'Applicant Type', individual: 'Individual', company: 'Company/Institution', serviceType: 'Service Type', companyName: 'Company Name', contactName: 'Contact Name', email: 'Email', phone: 'Phone Number', consultationType: 'Consultation Type', notes: 'Additional Notes', submit: 'Submit Request', sending: 'Sending...', success: 'Request sent successfully!', successMsg: 'We will contact you within 24 hours.', error: 'An error occurred, please try again', required: 'This field is required' }
+  ar: { applicantType: 'نوع مقدم الطلب', individual: 'فرد', company: 'شركة/مؤسسة', serviceType: 'نوع الخدمة', companyName: 'اسم الشركة أو المؤسسة', contactName: 'اسم التواصل', email: 'البريد الإلكتروني', phone: 'رقم التواصل', consultationType: 'نوع الاستشارة', notes: 'ملاحظات إضافية', entityType: 'نوع المنشأة', financingType: 'نوع التمويل', submit: 'إرسال الطلب', sending: 'جاري الإرسال...', success: 'تم إرسال طلبك بنجاح!', successMsg: 'سنتواصل معك خلال ٢٤ ساعة.', error: 'حدث خطأ، يرجى المحاولة مرة أخرى', required: 'هذا الحقل مطلوب' },
+  en: { applicantType: 'Applicant Type', individual: 'Individual', company: 'Company/Institution', serviceType: 'Service Type', companyName: 'Company Name', contactName: 'Contact Name', email: 'Email', phone: 'Phone Number', consultationType: 'Consultation Type', notes: 'Additional Notes', entityType: 'Entity Type', financingType: 'Financing Type', submit: 'Submit Request', sending: 'Sending...', success: 'Request sent successfully!', successMsg: 'We will contact you within 24 hours.', error: 'An error occurred, please try again', required: 'This field is required' }
 };
 
 const SERVICE_OPTIONS = {
   ar: ['تمويل عقار سكني','تمويل عقار تجاري سكني','تمويل عقار تجاري','رهن عقار سكني','رهن عقار تجاري سكني','رهن عقار تجاري'],
   en: ['Residential Property Finance','Mixed-Use Property Finance','Commercial Property Finance','Residential Property Mortgage','Mixed-Use Property Mortgage','Commercial Property Mortgage']
+};
+
+const ENTITY_TYPE_OPTIONS = {
+  ar: ['مؤسسة فردية','شركة ذات مسؤولية محدوده','شركة تضامن','شركة مساهمة','شركة شخص واحد'],
+  en: ['Sole Establishment','Limited Liability Company (LLC)','General Partnership','Joint-Stock Company','Single-Person Company']
+};
+
+const FINANCING_TYPE_OPTIONS = {
+  ar: ['تمويل اصول ثابته','تمويل رأس المال العامل','تمويل توسعات','تمويل استحواذ','تمويل عقود التوريد','تمويل المقاولين','تمويل فواتير','تمويل نقاط بيع'],
+  en: ['Fixed Assets Financing','Working Capital Financing','Expansion Financing','Acquisition Financing','Supply Contract Financing','Contractor Financing','Invoice Financing','POS Financing']
 };
 
 function openModal(type) {
@@ -1809,11 +1820,37 @@ function openModal(type) {
     formHtml += '</div>';
   }
 
-  // Company name (optional)
-  formHtml += '<div class="form-group"><label class="form-label">' + t.companyName + '</label><input class="form-input" name="company_name" type="text" /></div>';
+  // Business/SME form — company name (required), entity type, financing type
+  if (type === 'business') {
+    // Company name (required for business form)
+    formHtml += '<div class="form-group"><label class="form-label">' + t.companyName + ' *</label><input class="form-input" name="company_name" type="text" required /></div>';
 
-  // Contact name
-  formHtml += '<div class="form-group"><label class="form-label">' + t.contactName + ' *</label><input class="form-input" name="contact_name" type="text" required /></div>';
+    // Entity type — multiple select dropdown
+    formHtml += '<div class="form-group"><label class="form-label">' + t.entityType + ' *</label>';
+    formHtml += '<select class="form-select" name="entity_type" required multiple style="min-height:140px;">';
+    ENTITY_TYPE_OPTIONS[lang].forEach(s => { formHtml += '<option value="' + s + '">' + s + '</option>'; });
+    formHtml += '</select>';
+    formHtml += '<div style="font-size:11px;color:var(--text-muted);margin-top:4px;">' + (lang==='ar' ? 'يمكنك اختيار أكثر من خيار (Ctrl+Click)' : 'Select multiple (Ctrl+Click)') + '</div>';
+    formHtml += '</div>';
+
+    // Financing type — multiple select dropdown
+    formHtml += '<div class="form-group"><label class="form-label">' + t.financingType + ' *</label>';
+    formHtml += '<select class="form-select" name="financing_type" required multiple style="min-height:160px;">';
+    FINANCING_TYPE_OPTIONS[lang].forEach(s => { formHtml += '<option value="' + s + '">' + s + '</option>'; });
+    formHtml += '</select>';
+    formHtml += '<div style="font-size:11px;color:var(--text-muted);margin-top:4px;">' + (lang==='ar' ? 'يمكنك اختيار أكثر من خيار (Ctrl+Click)' : 'Select multiple (Ctrl+Click)') + '</div>';
+    formHtml += '</div>';
+  }
+
+  // Company name (optional) — not for business (already added above)
+  if (type !== 'business') {
+    formHtml += '<div class="form-group"><label class="form-label">' + t.companyName + '</label><input class="form-input" name="company_name" type="text" /></div>';
+  }
+
+  // Contact name (not for business form)
+  if (type !== 'business') {
+    formHtml += '<div class="form-group"><label class="form-label">' + t.contactName + ' *</label><input class="form-input" name="contact_name" type="text" required /></div>';
+  }
 
   // Phone (required for all)
   formHtml += '<div class="form-group"><label class="form-label">' + t.phone + ' *</label><input class="form-input" name="phone" type="tel" required placeholder="05xxxxxxxx" /></div>';
